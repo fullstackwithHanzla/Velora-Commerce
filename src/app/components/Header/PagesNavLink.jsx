@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import usePagesStore from '../layouts/providers/usePagesStore'
-import { useShallow } from 'zustand/shallow'
+
+
 
 const PagesNavLink = () => {
     const pagesDropDownArray = [

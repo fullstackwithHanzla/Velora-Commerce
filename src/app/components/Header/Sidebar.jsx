@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { RxCross2 } from "react-icons/rx";
 import { useShallow } from "zustand/shallow";
-import useSideBarStore from "../layouts/providers/useSideBarStore";
+import useSideBarStore from "../../layouts/providers/useSideBarStore";
 import SidebarLinks from "./SidebarLinks";
 
 const Sidebar = () => {
@@ -31,7 +31,7 @@ const Sidebar = () => {
         className={`
           absolute right-0 top-0
           h-full w-80
-          bg-white
+          bg-(--bg-card)
           transition-transform duration-500 ease-in-out
           ${isSideBarOpen ? "translate-x-0" : "translate-x-full"}
           pointer-events-auto

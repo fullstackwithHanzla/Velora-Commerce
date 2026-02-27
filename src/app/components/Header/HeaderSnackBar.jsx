@@ -7,7 +7,7 @@ import { IoMdMenu } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import { RxCross2 } from "react-icons/rx";
 import { useShallow } from 'zustand/shallow';
-import useSideBarStore from '../layouts/providers/useSideBarStore';
+import useSideBarStore from '../../layouts/providers/useSideBarStore';
 
 
 const HeaderSnackBar = () => {

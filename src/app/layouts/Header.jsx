@@ -1,7 +1,7 @@
 
-import HeaderBanner from '../components/HeaderBanner'
-import HeaderMain from '../components/HeaderMain'
-import PageDropDown from '../components/PageDropDown'
+import HeaderBanner from '../components/Header/HeaderBanner'
+import HeaderMain from '../components/Header/HeaderMain'
+
 
 const Header = () => {
   return (
