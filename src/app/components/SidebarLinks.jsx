@@ -14,7 +14,7 @@ const SidebarLinks = () => {
                     Shop
                 </li>
             </Link>
-        <li className="list-none text-[14px] h-10  flex items-center px-3 hover:bg-(--bg-page) rounded-sm hover:text-(--accent-secondary) font-medium ">
+        <li className="list-none text-[14px] justify-between h-10  flex items-center px-3 hover:bg-(--bg-page) rounded-sm hover:text-(--accent-secondary) font-medium ">
             Pages 
             <div className="flex justify-center items-center ">
                 <RiArrowDropDownLine className="size-6 "/>

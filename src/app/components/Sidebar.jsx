@@ -37,7 +37,7 @@ const Sidebar = () => {
           pointer-events-auto
         `}
       >
-        <div className="border-b h-20 flex items-center justify-between">
+        <div className="border-b h-15 flex items-center justify-between">
           <Link to="/">
             <img
               src="/src/assets/Velora-Logo.png"
