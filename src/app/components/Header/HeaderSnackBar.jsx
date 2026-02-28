@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 import { RxCross2 } from "react-icons/rx";
 import { useShallow } from 'zustand/shallow';
 import useSideBarStore from '../../layouts/providers/useSideBarStore';
+import useSearchStore from '../../layouts/providers/useSearchStore';
+import SearchInput from './SnackbarSearchInput/SearchInput';
 
 
 const HeaderSnackBar = () => {
@@ -17,9 +19,12 @@ const HeaderSnackBar = () => {
             checkSideBarStatus : state.checkSideBarStatus
         }))
     )
+    const checkSearchInputStatus = useSearchStore((state) => state.checkSearchInputStatus)
+
   return (
     <div className='flex gap-3 justify-center items-center'>
-        <CiSearch className='stroke-0 size-5 sm:size-6 hover:text-(--accent-secondary)'/>
+        <CiSearch onClick={checkSearchInputStatus} className='stroke-0 relative size-5 sm:size-6 hover:text-(--accent-secondary)'/>
+        <SearchInput/>
        <Link to="/dashboard">
             <LuUser className='stroke-1 size-5 sm:size-6 hover:text-(--accent-secondary)'/>
        </Link> 
