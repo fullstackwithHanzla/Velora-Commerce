@@ -4,6 +4,8 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import PageDropDown from './PageDropDown';
 import { useShallow } from 'zustand/shallow';
 import usePagesStore from '../../layouts/providers/usePagesStore';
+import useBlogsStore from '../../layouts/providers/useBlogsStores';
+import PagesNavLink from './PagesNavLink';
 
 
 
@@ -14,14 +16,22 @@ const HeaderNavBar = () => {
       checkDropDownStatus: state.checkDropDownStatus,
     }))
   )
-
+  const { isBlogsDropDownOpen, checkBlogsDropDownStatus } = useBlogsStore(
+    useShallow(state => ({
+      isBlogsDropDownOpen: state.isBlogsDropDownOpen,
+      checkBlogsDropDownStatus: state.checkBlogsDropDownStatus,
+    }))
+  )
+  const baseStyle = "list-none text-[14px] font-medium hover:text-(--accent-secondary)";
+  const dropDownNavItemStyle = "list-none text-[14px] font-medium flex items-center gap-1 cursor-pointer transition-colors duration-200 hover:text-(--accent-secondary)"
+  const absoluteDropdownStyle = "absolute left-[55%] top-full py-5  -translate-x-1/2 transition-all duration-200 ease-out"
   return (
-    <nav className="hidden md:flex justify-center items-center gap-3">
-      <li className="list-none text-[14px] font-medium hover:text-(--accent-secondary)">
+    <nav className="hidden md:flex justify-center items-center gap-5">
+      <li className={`${baseStyle}`}>
         <NavLink to="/popular">Popular</NavLink>
       </li>
 
-      <li className="list-none text-[14px] font-medium hover:text-(--accent-secondary)">
+      <li className={`${baseStyle}`}>
         <NavLink to="/shop">Shop</NavLink>
       </li>
 
@@ -34,9 +44,7 @@ const HeaderNavBar = () => {
         {/* TRIGGER */}
         <li
           className={`
-            list-none text-[14px] font-medium flex items-center gap-1 cursor-pointer
-            transition-colors duration-200
-            hover:text-(--accent-secondary)
+            ${dropDownNavItemStyle}
             ${isPageDropdownOpen ? 'text-(--accent-secondary)' : ''}
           `}
         >
@@ -51,11 +59,62 @@ const HeaderNavBar = () => {
           </span>
         </li>
 
-        {/* DROPDOWN */}
-        <PageDropDown />
+        <div
+      className={`
+        ${absoluteDropdownStyle}
+        ${isPageDropdownOpen
+          ? 'opacity-100 translate-y-0 pointer-events-auto'
+          : 'opacity-0 translate-y-2 pointer-events-none'}
+      `}
+    >
+      <div className="bg-white py-2 shadow-lg rounded-lg min-w-60">
+        <nav className="flex flex-col px-3 my-2 gap-2">
+          <PagesNavLink />
+        </nav>
+      </div>
+    </div>
       </div>
 
-      <li className="list-none text-[14px] font-medium hover:text-(--accent-secondary)">
+      <div
+        className="relative group"
+        onMouseEnter={() => checkBlogsDropDownStatus(true)}
+        onMouseLeave={() => checkBlogsDropDownStatus(false)}
+      >
+        {/* TRIGGER */}
+        <li
+          className={`
+            ${dropDownNavItemStyle}
+            ${isBlogsDropDownOpen ? 'text-(--accent-secondary)' : ''}
+          `}
+        >
+          Blogs
+          <span
+            className={`
+              transition-transform duration-300
+              ${isBlogsDropDownOpen ? 'rotate-180' : 'rotate-0'}
+            `}
+          >
+            <RiArrowDropDownLine className="size-6" />
+          </span>
+        </li>
+
+        <div
+      className={`
+        ${absoluteDropdownStyle}
+        ${isBlogsDropDownOpen
+          ? 'opacity-100 translate-y-0 pointer-events-auto'
+          : 'opacity-0 translate-y-2 pointer-events-none'}
+      `}
+    >
+      <div className="bg-white py-2 shadow-lg rounded-lg min-w-60">
+        <nav className="flex flex-col px-3 my-2 gap-2">
+          <PagesNavLink blogs={true} />
+        </nav>
+      </div>
+    </div>
+      </div>
+
+      <li className={`${baseStyle}`}>
         <NavLink to="/">Contact</NavLink>
       </li>
     </nav>

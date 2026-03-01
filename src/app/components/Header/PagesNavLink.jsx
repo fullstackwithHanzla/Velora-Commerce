@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 
 
-const PagesNavLink = () => {
+const PagesNavLink = ({blogs = false}) => {
     const pagesDropDownArray = [
         "Shop without sidebar",
 "Checkout",
@@ -16,12 +16,20 @@ const PagesNavLink = () => {
 "Privacy Policy",
 "Terms & Conditions"
     ]
+    const blogsDropDownArray = [
+        "Blog Grid",
+        "Blog Grid with Sidebar",
+        "Blog details with sidebar",
+        "Blog Details"
+    ]
+
+    const arrayToRender = blogs ? blogsDropDownArray : pagesDropDownArray
     
   return (
     <>
-        {pagesDropDownArray.map((item) => (
-            <Link key={item} to="/popular">
-                    <li className="list-none h-10  flex items-center px-3 hover:bg-(--bg-page) rounded-sm  text-[14px] hover:text-(--accent-secondary) font-medium">
+        {arrayToRender.map((item) => (
+            <Link key={item} to={`/${item.toLowerCase().replace(/\s/g, '-')}`}>
+                    <li className="list-none h-7  flex items-center px-3 hover:bg-(--bg-page) rounded-sm  text-[14px] hover:text-(--accent-secondary) font-medium">
                             {item}
                     </li>
             </Link>

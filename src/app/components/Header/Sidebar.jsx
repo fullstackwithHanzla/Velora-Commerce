@@ -30,14 +30,16 @@ const Sidebar = () => {
       <div
         className={`
           absolute right-0 top-0
-          h-full w-80
+          h-full flex flex-col  w-80
           bg-(--bg-card)
           transition-transform duration-500 ease-in-out
           ${isSideBarOpen ? "translate-x-0" : "translate-x-full"}
           pointer-events-auto
         `}
       >
-        <div className="border-b h-15 flex items-center justify-between">
+        <div className=" flex flex-col min-h-full justify-between">
+          <div>
+            <div className=" h-15 flex items-center justify-between">
           <Link to="/">
             <img
               src="/src/assets/Velora-Logo.png"
@@ -53,8 +55,21 @@ const Sidebar = () => {
           >
             <RxCross2 />
           </button>
+
         </div>
+        <hr className="text-black/30"/>
         <SidebarLinks/>
+          </div>
+        
+        <div className="border-t border-t-black/30 h-15 flex justify-start items-center gap-4 px-5">
+          <Link to={`/sign-in`} className="text-[13px] text-black/60 font-semibold">
+            Sign In
+          </Link>
+          <Link to={`/sign-up`} className="text-[13px] text-black/60 font-semibold">
+            Create an Account
+          </Link>
+        </div>
+        </div>
       </div>
     </div>
   );

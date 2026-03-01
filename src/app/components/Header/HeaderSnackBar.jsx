@@ -10,7 +10,8 @@ import { useShallow } from 'zustand/shallow';
 import useSideBarStore from '../../layouts/providers/useSideBarStore';
 import useSearchStore from '../../layouts/providers/useSearchStore';
 import SearchInput from './SnackbarSearchInput/SearchInput';
-
+import { PiShoppingBagLight } from "react-icons/pi";
+import useCartStore from '../../layouts/providers/useCartStore';
 
 const HeaderSnackBar = () => {
     const {isSideBarOpen , checkSideBarStatus} = useSideBarStore(
@@ -20,6 +21,7 @@ const HeaderSnackBar = () => {
         }))
     )
     const checkSearchInputStatus = useSearchStore((state) => state.checkSearchInputStatus)
+    const checkCartStatus = useCartStore((state) => state.checkCartStatus)
 
   return (
     <div className='flex gap-3 justify-center items-center'>
@@ -37,8 +39,8 @@ const HeaderSnackBar = () => {
         </Link>
         </div>
         <div className="relative flex">
-            <button>
-            <PiBagSimpleLight className='stroke-1  size-5 sm:size-6 hover:text-(--accent-secondary)'/>
+            <button onClick={checkCartStatus}>
+            <PiShoppingBagLight className='stroke-1  size-5 sm:size-6 hover:text-(--accent-secondary)'/>
             <div className='absolute bg-red-600 flex justify-center items-center rounded-full bottom-3 left-3 size-4 sm:size-5'>
                 <span className='text-white text-[12px]'>0</span>
             </div>
