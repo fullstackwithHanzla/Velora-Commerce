@@ -48,9 +48,9 @@ const HeaderSnackBar = () => {
         </div>
         <button onClick={checkSideBarStatus}>
             {!isSideBarOpen?
-            <IoMdMenu className='opacity-60 size-7 sm:size-8 block hover:text-(--accent-secondary) hover:opacity-100 md:hidden'/>
+            <IoMdMenu className='opacity-60 size-7 sm:size-8 block hover:text-(--accent-secondary) hover:opacity-100 lg:hidden'/>
             :
-            <RxCross2 className='opacity-60 size-7 sm:size-8 block hover:text-(--accent-secondary) hover:opacity-100 md:hidden'/>
+            <RxCross2 className='opacity-60 size-7 sm:size-8 block hover:text-(--accent-secondary) hover:opacity-100 lg:hidden'/>
         }
         </button>
     </div>

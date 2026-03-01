@@ -30,7 +30,7 @@ const SnackbarCart = () => {
       <div
         className={`
           absolute right-0 top-0
-          h-full flex flex-col  w-110
+          h-full flex flex-col  w-full  sm:w-100 md:110
           bg-(--bg-card)
           transition-transform duration-500 ease-in-out
           ${isCartOpen ? "translate-x-0" : "translate-x-full"}
@@ -41,7 +41,7 @@ const SnackbarCart = () => {
           <div>
             <div className=" h-20 flex items-center justify-between px-6">
 
-            <h1 className='text-2xl underline hover:text-(--accent-secondary)'>Cart View</h1>
+            <h1 className='text-[16px] underline hover:text-(--accent-secondary) sm:text-2xl'>Cart View</h1>
 
           <button
             onClick={checkCartStatus}
@@ -62,10 +62,10 @@ const SnackbarCart = () => {
             <span className='text-xl'>0</span>
           </div>
           <div className='flex justify-evenly items-center w-full gap-3'>
-            <Link className='bg-(--accent-secondary) text-white py-3 px-14 rounded-md' to="/cart">
+            <Link className='bg-(--accent-secondary) text-white py-3 grow flex justify-center text-[12px] sm:text-[14px] rounded-md' to="/cart">
               View Cart
             </Link>
-            <Link className='bg-(--accent-primary) text-white py-3 px-14 rounded-md' to="/checkout">
+            <Link className='bg-(--accent-primary) text-white py-3  grow flex justify-center text-[12px] sm:text-[14px] rounded-md' to="/checkout">
               Checkout
             </Link>
           </div>

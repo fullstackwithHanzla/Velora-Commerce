@@ -8,7 +8,9 @@ const EmptyCart = () => {
             <AiOutlineShoppingCart className='size-10 fill-gray-600/70'/>
         </div>
             <p className='text-gray-500/90'>Your cart is empty</p>
-            <Link to="/shop" className='py-4 bg-(--accent-primary) text-white px-30 rounded-lg'>Continue Shoping</Link>
+            <div className='flex w-[70%] sm:w-[90%]'>
+              <Link to="/shop" className='py-4 bg-(--accent-primary) text-white text-[12px] flex justify-center grow sm:text-[14px]  rounded-lg'>Continue Shoping</Link>
+            </div>
     </div>
   )
 }

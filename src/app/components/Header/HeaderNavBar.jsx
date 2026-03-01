@@ -26,7 +26,7 @@ const HeaderNavBar = () => {
   const dropDownNavItemStyle = "list-none text-[14px] font-medium flex items-center gap-1 cursor-pointer transition-colors duration-200 hover:text-(--accent-secondary)"
   const absoluteDropdownStyle = "absolute left-[55%] top-full py-5  -translate-x-1/2 transition-all duration-200 ease-out"
   return (
-    <nav className="hidden md:flex justify-center items-center gap-5">
+    <nav className="hidden lg:flex justify-center items-center gap-5">
       <li className={`${baseStyle}`}>
         <NavLink to="/popular">Popular</NavLink>
       </li>
