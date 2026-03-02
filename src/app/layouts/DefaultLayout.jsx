@@ -17,10 +17,10 @@ const DefaultLayout = () => {
       <aside>
         <SnackbarCart/>
       </aside>
-        <aside>
+        <aside className='flex justify-center bg-(--bg-page)'>
           <BreadCrumbs/>
         </aside>
-      <main className='grow flex bg-(--bg-page) justify-center'>
+      <main className='grow flex flex-col bg-(--bg-page)'>
         <Outlet/>
       </main>
       <Footer/>

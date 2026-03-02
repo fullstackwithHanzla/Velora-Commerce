@@ -1,9 +1,12 @@
 
 import React from 'react'
+import HomeLandingPage from '../components/Home/HomeLandingPage'
 
 const Home = () => {
   return (
-    <div></div>
+    <div className='flex border justify-center items-center'>
+      <HomeLandingPage/>
+    </div>
   )
 }
 

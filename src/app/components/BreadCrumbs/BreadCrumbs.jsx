@@ -16,16 +16,16 @@ const BreadCrumbs = () => {
     })
     
   return (
-    <div className='h-10 flex justify-start  bg-(--bg-page)  items-center pl-10'>
+    <div className='h-10 flex justify-start w-[78%] bg-(--bg-page)  items-center pl-10'>
       <nav aria-label="Breadcrumb">
       {crumb.length > 0 && 
-        <ol className="flex items-center text-md
+        <ol key={crumb} className="flex items-center text-md
         [&>li:not(:last-child)]:after:content-['>']
         [&>li:not(:last-child)]:after:mx-2
         [&>li:not(:last-child)]:after:text-(--accent-secondary)
       ">
-        <li>
-          <Link to="/" className="hover:text-(--accent-secondary)">Home</Link>
+        <li key={crumb}>
+          <Link to="/" className="hover:text-(--accent-secondary)" key={crumb}>Home</Link>
         </li>
         {crumb}
       </ol>
