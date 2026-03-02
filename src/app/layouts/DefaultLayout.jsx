@@ -20,7 +20,7 @@ const DefaultLayout = () => {
         <aside className='flex justify-center bg-(--bg-page)'>
           <BreadCrumbs/>
         </aside>
-      <main className='grow flex flex-col bg-(--bg-page)'>
+      <main className='grow flex items-center flex-col bg-(--bg-page)'>
         <Outlet/>
       </main>
       <Footer/>

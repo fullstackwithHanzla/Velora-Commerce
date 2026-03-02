@@ -4,7 +4,7 @@ import HomeBanner from './HomeBanner'
 
 const HomeLandingPage = () => {
   return (
-    <div className='flex border w-full m-15'>
+    <div className='flex justify-between  w-full'>
         <HomeSlider/>
         <HomeBanner/>
     </div>
