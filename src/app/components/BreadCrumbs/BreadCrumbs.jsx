@@ -16,7 +16,9 @@ const BreadCrumbs = () => {
     })
     
   return (
-    <div className='h-10 flex justify-start w-[78%] bg-(--bg-page)  items-center pl-10'>
+    <>
+      {crumb.length > 0 && 
+        <div className='h-10 flex justify-start w-[78%] bg-(--bg-page)  items-center pl-10'>
       <nav aria-label="Breadcrumb">
       {crumb.length > 0 && 
         <ol key={crumb} className="flex items-center text-md
@@ -32,6 +34,8 @@ const BreadCrumbs = () => {
       }
     </nav>
     </div>
+      }
+    </>
   )
 }
 
