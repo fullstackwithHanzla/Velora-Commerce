@@ -28,8 +28,8 @@ const HomeSlider = () => {
           style={{ transform : `translateX(-${index * 100}%)`}}
         >
           {slides.map((prod) => (
-            <div key={prod.id} className='flex flex-col-reverse  shrink-0 w-full  p-10 md:p-15 justify-between gap-5 md:gap-10 items-center lg:flex-row'>
-              <div className='flex flex-col gap-4 w-[95%] grow md:w-[80%] justify-center'>
+            <div key={prod.id} className='flex flex-col-reverse  shrink-0 w-full  p-10 md:p-15 justify-around md:justify-between gap-5 md:gap-10 items-center lg:flex-row'>
+              <div className='flex flex-col gap-4 w-[95%] md:w-[80%] justify-center'>
                 <div className='flex gap-2 items-center'>
                   <h1 className='text-4xl md:text-6xl text-(--accent-secondary) font-medium'>{prod.salesPercentage}%</h1>
                   <div className='flex flex-col leading-4 text-[10px] md:text-[16px]'>
@@ -41,7 +41,7 @@ const HomeSlider = () => {
                 <h1 className='text-lg md:text-2xl font-medium'>{prod.title}</h1>
 
                 <div className=' w-[95%] lg:w-[80%]'>
-                  <p className='text-[12px] md:text-[14px]'>{prod.description}</p>
+                  <p className='text-[10px] md:text-[14px]'>{prod.description}</p>
                 </div>
 
                 <div className='py-2 flex justify-center items-center md:justify-start'>
@@ -52,8 +52,8 @@ const HomeSlider = () => {
 
 
               </div>
-              <div className='w-[60%]'>
-                <img src={prod.thumbnail} alt="" className='w-70 sm:w-90 md:grow'/>
+              <div className='md:w-[60%] '>
+                <img src={prod.thumbnail} alt="" className='grow w-full sm:w-90 md:grow'/>
               </div>
             </div>
           ))}
