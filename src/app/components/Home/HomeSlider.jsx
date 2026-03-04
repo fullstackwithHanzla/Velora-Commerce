@@ -52,7 +52,7 @@ const HomeSlider = () => {
 
 
               </div>
-              <div className='md:w-[60%] '>
+              <div className='md:w-[60%] flex items-center justify-center'>
                 <img src={prod.thumbnail} alt="" className='grow w-full sm:w-90 md:grow'/>
               </div>
             </div>
