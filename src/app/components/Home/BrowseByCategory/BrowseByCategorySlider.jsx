@@ -30,7 +30,7 @@ const BrowseByCategorySlider = () => {
     <div className="w-full">
       {/* Header */}
       <div className="w-[90%] mx-auto my-10 flex justify-between items-center">
-        <h1 className="text-md md:text-3xl font-medium">Browse By Category</h1>
+        <h1 className="text-md md:text-2xl font-medium">Browse By Category</h1>
         <div className="flex gap-1">
           <button onClick={prev} className='border  border-gray-600/30 rounded-md p-2 md:p-3 hover:bg-(--accent-secondary) hover:text-white'>
                  <FaAngleLeft className='size-3 md:size-5'/>
@@ -63,6 +63,7 @@ const BrowseByCategorySlider = () => {
           ))}
         </div>
       </div>
+      <hr className="text-gray-600/20 mt-5"/>
     </div>
   );
 };

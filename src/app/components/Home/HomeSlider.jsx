@@ -23,7 +23,7 @@ const HomeSlider = () => {
     return () => clearInterval(slideInterval)
   }, [index])
   return (
-    <div className=' overflow-hidden relative bg-white rounded-xl flex w-full'>
+    <div className=' overflow-hidden  relative bg-white rounded-xl flex w-full'>
         <div className='flex w-full  transition-transform duration-300 ease-in-out'
           style={{ transform : `translateX(-${index * 100}%)`}}
         >

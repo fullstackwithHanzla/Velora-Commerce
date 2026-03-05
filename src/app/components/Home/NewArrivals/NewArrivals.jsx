@@ -4,7 +4,7 @@ import NewArrivalsProducts from './NewArrivalsProducts'
 
 const NewArrivals = () => {
   return (
-    <div className='border w-full flex flex-col  gap-5 mt-5'>
+    <div className='bg-white w-full flex flex-col  gap-5 '>
         <NewArrivalsHeader/>
         <NewArrivalsProducts/>
     </div>
