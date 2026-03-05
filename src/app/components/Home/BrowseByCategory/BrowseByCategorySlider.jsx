@@ -55,7 +55,7 @@ const BrowseByCategorySlider = () => {
               className="shrink-0  flex flex-col items-center gap-5 p-5 hover:text-(--accent-secondary)"
               style={{ width: `${100 / visibleCount}%` }}
             >
-              <div className="h-25 w-25 md:h-30 md:w-30 lg:h-40 lg:w-40  flex justify-center items-center rounded-full bg-gray-500/20">
+              <div className="h-25 w-25 md:h-30 md:w-30 lg:h-40 lg:w-40  flex justify-center items-center rounded-full bg-[#F6F7FB]">
                 <img src={s.image} alt={s.categoryName} className="w-10 md:w-15 lg:w-20"  />
               </div>
               <p className="text-[10px] md:text-[14px] lg:text-[15px]">{s.categoryName}</p>
