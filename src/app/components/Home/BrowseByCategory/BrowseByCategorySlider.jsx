@@ -52,7 +52,7 @@ const BrowseByCategorySlider = () => {
           {slides.map((s) => (
             <Link
               key={s.id}
-              className="shrink-0  flex flex-col items-center gap-5 p-5"
+              className="shrink-0  flex flex-col items-center gap-5 p-5 hover:text-(--accent-secondary)"
               style={{ width: `${100 / visibleCount}%` }}
             >
               <div className="h-25 w-25 md:h-30 md:w-30 lg:h-40 lg:w-40  flex justify-center items-center rounded-full bg-gray-500/20">
