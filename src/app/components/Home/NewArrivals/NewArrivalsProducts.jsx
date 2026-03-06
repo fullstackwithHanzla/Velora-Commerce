@@ -1,15 +1,27 @@
 import React, { useState } from 'react'
 import { newProductsData } from '../../../../features/settings/api'
 import { IoEyeOutline } from "react-icons/io5";
-import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
+import useQuickViewStore from '../../../layouts/providers/useQuickViewStore';
+import QuickView from '../QuickView/QuickView';
+import { useShallow } from 'zustand/shallow';
 
 const NewArrivalsProducts = () => {
     const slides = newProductsData;
     const [isWishListHovered , setIsWishListHovered] = useState(false)
+    const [isQuickViewHovered , setIsQuickViewHovered] = useState(false)
     const [isWishListActive,setIsWishListActive] = useState(false)
     const [wishListId,setWishListId] = useState([])
+
+    const {quickViewId , openQuickView , quickViewActive , quickViewActiveStatus} = useQuickViewStore(
+        useShallow(state => ({
+            quickViewId : state.quickViewId,
+            openQuickView : state.showQuickView,
+            quickViewActive :  state.quickViewActive,
+            quickViewActiveStatus : state.quickViewActiveStatus
+        }))
+    )
 
     function toggleWishList(id) {
         setWishListId((prev) => 
@@ -20,16 +32,18 @@ const NewArrivalsProducts = () => {
     }
 
   return (
-    <div className='grid  mx-auto grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-7 gap-x-5'>
+    <>
+        <div className='grid mx-10 my-20  lg:mx-auto grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-7 gap-x-5'>
         {slides.slice(0,8).map((s) => (
-            <div  className=' flex flex-col gap-5 p-5 group items-center  min-w-screen md:min-w-full' key={s.id}>
-                <div className='h-70 relative   overflow-hidden  w-full md:w-70 flex items-center justify-center rounded-lg bg-[#F6F7FB]'>
+            <div  className=' flex flex-col gap-5  group items-center  max-w-svw md:min-w-full' key={s.id}>
+                <div className='h-70 relative    overflow-hidden min-w-full md:w-70 flex items-center justify-center rounded-lg bg-[#F6F7FB]'>
                     <div className={`absolute flex  justify-center items-end  transition-all duration-400  ease-in-out opacity-0 -bottom-20 
                         group-hover:bottom-2
                         group-hover:opacity-100
                         `}>
                         <div className=' flex gap-2'>
-                            <button className='bg-white p-2  hover:text-(--accent-secondary) rounded-md border border-gray-400/30'>
+                            <button onClick={()=>openQuickView(s.id)} onMouseEnter={()=>setIsQuickViewHovered(!isQuickViewHovered)} onMouseLeave={()=>setIsQuickViewHovered(false)} className='bg-white p-2 relative  hover:text-(--accent-secondary) rounded-md border border-gray-400/30'>
+                                <div className={`border border-gray-600/20 absolute bottom-11 text-[13px] -left-6 bg-white transition-all duration-300 ease-in-out  w-22 py-1 rounded-md font-medium ${isQuickViewHovered? "opacity-100" : "opacity-0"}`}>Quick View</div>
                                 <IoEyeOutline className='size-5 stroke-1'/>
                             </button>
                             <button className='bg-(--accent-secondary) rounded-md px-4 text-[12px] text-white hover:bg-blue-700'>
@@ -52,7 +66,7 @@ const NewArrivalsProducts = () => {
                     
                     <img src={s.thumbnail} alt={s.title} className='w-50'/>
                 </div>
-                <div className='flex flex-col w-full md:w-70 items-center md:items-start gap-2'>
+                <div className='flex flex-col min-w-full  md:w-70 items-start gap-2'>
                     <h3 className='text-[14px] md:text-[16px] hover:text-(--accent-secondary) font-medium'>{s.title}</h3>
                     <div className='flex gap-1 items-center'>
                         <span className='line-through text-gray-600 text-[12px] md:text-[14px] font-medium'>${s.price}</span>
@@ -62,6 +76,9 @@ const NewArrivalsProducts = () => {
             </div>
         ))}
     </div>
+        <QuickView/>
+    <hr className='text-gray-600/20'/>
+    </>
   )
 }
 
