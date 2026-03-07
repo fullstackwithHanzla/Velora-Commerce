@@ -4,6 +4,7 @@ import HomeLandingPage from '../components/Home/HomeLandingPage'
 import HomeProductsInfo from '../components/Home/HomeProductsInfo/HomeProductsInfo'
 import NewArrivals from '../components/Home/NewArrivals/NewArrivals'
 import ProductTimer from '../components/Home/ProductTimer/ProductTimer'
+import LatestTrends from '../components/Home/LatestTrends&Offers/LatestTrends'
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
     <HomeProductsInfo/>
     <NewArrivals/>
     <ProductTimer/>
+    <LatestTrends/>
     </>
   )
 }
