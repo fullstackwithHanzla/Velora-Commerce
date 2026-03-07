@@ -13,7 +13,7 @@ const PageDropDown = () => {
   return (
     <div
       className={`
-        absolute left-1/2 top-full  -translate-x-1/2
+        absolute z-75 left-1/2 top-full  -translate-x-1/2
         transition-all duration-200 ease-out
         ${isPageDropdownOpen
           ? 'opacity-100 translate-y-0 pointer-events-auto'
