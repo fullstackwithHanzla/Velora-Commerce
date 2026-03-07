@@ -69,8 +69,8 @@ const NewArrivalsProducts = () => {
                 <div className='flex flex-col min-w-full  md:w-70 items-start gap-2'>
                     <h3 className='text-[14px] md:text-[16px] hover:text-(--accent-secondary) font-medium'>{s.title}</h3>
                     <div className='flex gap-1 items-center'>
-                        <span className='line-through text-gray-600 text-[12px] md:text-[14px] font-medium'>${s.price}</span>
-                        <span className='text-lg md:text-xl font-medium'>${s.originalPrice}</span>
+                        <span className='line-through text-gray-600 text-[12px] md:text-[14px] font-medium'>${s.originalPrice}</span>
+                        <span className='text-lg md:text-xl font-medium'>${s.price}</span>
                     </div>
                 </div>
             </div>

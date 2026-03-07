@@ -3,6 +3,7 @@ import React from 'react'
 import HomeLandingPage from '../components/Home/HomeLandingPage'
 import HomeProductsInfo from '../components/Home/HomeProductsInfo/HomeProductsInfo'
 import NewArrivals from '../components/Home/NewArrivals/NewArrivals'
+import ProductTimer from '../components/Home/ProductTimer/ProductTimer'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
     
     <HomeProductsInfo/>
     <NewArrivals/>
+    <ProductTimer/>
     </>
   )
 }
