@@ -23,13 +23,13 @@ const HomeSlider = () => {
     return () => clearInterval(slideInterval)
   }, [index])
   return (
-    <div className=' overflow-hidden  relative bg-white rounded-xl flex w-full'>
-        <div className='flex w-full  transition-transform duration-300 ease-in-out'
+    <div className=' overflow-hidden h-auto   relative bg-white rounded-xl flex w-full'>
+        <div className='flex w-full   transition-transform duration-300 ease-in-out'
           style={{ transform : `translateX(-${index * 100}%)`}}
         >
           {slides.map((prod) => (
-            <div key={prod.id} className='flex flex-col-reverse  shrink-0 w-full  p-10 md:p-15 justify-around md:justify-between gap-5 md:gap-10 items-center lg:flex-row'>
-              <div className='flex flex-col gap-4 w-[95%] md:w-[80%] justify-center'>
+            <div key={prod.id} className='flex  flex-col-reverse shrink-0    w-full md:w-full  p-10 md:p-15 justify-end md:justify-between  md:gap-10    lg:flex-row'>
+              <div className='flex flex-col   gap-4 w-full justify-center'>
                 <div className='flex gap-2 items-center'>
                   <h1 className='text-4xl md:text-6xl text-(--accent-secondary) font-medium'>{prod.salesPercentage}%</h1>
                   <div className='flex flex-col leading-4 text-[10px] md:text-[16px]'>
@@ -52,8 +52,8 @@ const HomeSlider = () => {
 
 
               </div>
-              <div className='md:w-[60%] flex items-center justify-center'>
-                <img src={prod.thumbnail} alt="" className='grow w-full sm:w-90 md:grow'/>
+              <div className=' flex items-center justify-center'>
+                <img src={prod.thumbnail} alt="" className=' w-60 sm:w-100'/>
               </div>
             </div>
           ))}

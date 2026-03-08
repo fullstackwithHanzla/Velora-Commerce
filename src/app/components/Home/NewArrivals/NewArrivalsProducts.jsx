@@ -35,8 +35,8 @@ const NewArrivalsProducts = () => {
     <>
         <div className='grid mx-10 my-20  lg:mx-auto grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-7 gap-x-5'>
         {slides.slice(0,8).map((s) => (
-            <div  className=' flex flex-col gap-5  group items-center  max-w-svw md:min-w-full' key={s.id}>
-                <div className='h-70 relative    overflow-hidden min-w-full md:w-70 flex items-center justify-center rounded-lg bg-[#F6F7FB]'>
+            <div  className=' flex flex-col gap-3  group items-center  max-w-svw md:min-w-full' key={s.id}>
+                <div className='h-70 relative    overflow-hidden min-w-full md:w-70 flex items-center justify-center border border-gray-600/30 rounded-lg bg-[#F6F7FB]'>
                     <div className={`absolute flex  justify-center items-end  transition-all duration-400  ease-in-out opacity-0 -bottom-20 
                         group-hover:bottom-2
                         group-hover:opacity-100
@@ -66,8 +66,8 @@ const NewArrivalsProducts = () => {
                     
                     <img src={s.thumbnail} alt={s.title} className='w-50'/>
                 </div>
-                <div className='flex flex-col min-w-full  md:w-70 items-start gap-2'>
-                    <h3 className='text-[14px] md:text-[16px] hover:text-(--accent-secondary) font-medium'>{s.title}</h3>
+                <div className='flex flex-col min-w-full  md:w-70 items-start '>
+                    <h3 className='text-[10px] md:text-[12px] hover:text-(--accent-secondary) font-medium '>{s.title}</h3>
                     <div className='flex gap-1 items-center'>
                         <span className='line-through text-gray-600 text-[12px] md:text-[14px] font-medium'>${s.originalPrice}</span>
                         <span className='text-lg md:text-xl font-medium'>${s.price}</span>

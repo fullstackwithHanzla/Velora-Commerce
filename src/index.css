@@ -10,6 +10,23 @@
 }
 body{
     font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #19254a;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #1c3580;
 }
 
 @import "tailwindcss";

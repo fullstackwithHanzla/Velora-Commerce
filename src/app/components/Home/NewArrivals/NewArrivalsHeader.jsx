@@ -8,7 +8,7 @@ const NewArrivalsHeader = () => {
         <div className="w-[90%] mx-auto my-10 flex justify-between items-center">
         <h1 className="text-md md:text-2xl font-medium">New Arrivals</h1>
         <div className="flex gap-1">
-          <Link className='border border-gray-600/30 px-6 py-2 hover:bg-(--accent-primary) hover:text-white rounded-lg' to="/shop">
+          <Link className='border border-gray-600/30 px-4 md:px-6 py-2 hover:bg-(--accent-primary) hover:text-white rounded-lg text-[10px] md:text-[12px]' to="/shop">
             View All
           </Link>
         </div>

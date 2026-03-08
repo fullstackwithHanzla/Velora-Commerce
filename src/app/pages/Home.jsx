@@ -5,6 +5,7 @@ import HomeProductsInfo from '../components/Home/HomeProductsInfo/HomeProductsIn
 import NewArrivals from '../components/Home/NewArrivals/NewArrivals'
 import ProductTimer from '../components/Home/ProductTimer/ProductTimer'
 import LatestTrends from '../components/Home/LatestTrends&Offers/LatestTrends'
+import AboutDelivery from '../components/Home/AboutDelivery/AboutDelivery'
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
     <NewArrivals/>
     <ProductTimer/>
     <LatestTrends/>
+    <AboutDelivery/>
     </>
   )
 }

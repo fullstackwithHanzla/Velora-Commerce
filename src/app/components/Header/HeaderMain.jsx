@@ -5,7 +5,7 @@ import HeaderSnackBar from "./HeaderSnackBar";
 
 const HeaderMain = () => {
   return (
-    <div className="h-18 flex items-center justify-between w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[75%]">
+    <div className="h-18 bg-white px-5 shadow-lg flex items-center justify-between min-w-screen w-full sm:max-w-[90%] ">
       <HeaderLogo/>
       <HeaderNavBar/>
       <HeaderSnackBar/>
