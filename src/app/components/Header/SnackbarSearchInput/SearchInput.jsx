@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useSearchStore from '../../../layouts/providers/useSearchStore'
 import { useShallow } from 'zustand/shallow'
 import SearchFilter from './SearchFilter'
 import { RxCross2 } from 'react-icons/rx'
 import SearchProducts from './SearchProducts'
+
 
 const SearchInput = () => {
     const {isSearchInputActive , checkSearchInputStatus} = useSearchStore(
@@ -12,6 +13,7 @@ const SearchInput = () => {
             checkSearchInputStatus : state.checkSearchInputStatus
         }))
     )
+    
   return (
     <div onClick={checkSearchInputStatus} className={`
         absolute inset-0 min-h-screen border backdrop-blur-[1px] opacity-0 bg-black/50 h-full flex  justify-center z-49 items-center  
@@ -24,7 +26,7 @@ const SearchInput = () => {
             </div>
             <SearchFilter/>
             <hr className='text-black/20'/>
-            <SearchProducts/>
+            <SearchProducts />
         </div>
     </div>
   )

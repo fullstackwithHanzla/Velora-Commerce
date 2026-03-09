@@ -1,18 +1,17 @@
 import React, { useState } from 'react'
-import { CiSearch } from "react-icons/ci";
-import { RxCross2 } from "react-icons/rx";
-import useSearchStore from '../../../layouts/providers/useSearchStore';
 import InputElement from './InputElement';
+import useSearchInputStore from '../../../layouts/providers/useSearchInputStore';
 
 
 const SearchFilter = () => {
     
-    const searchFilterButtons = ["All", "Products", "Blog"] 
+    const searchFilterButtons = ["All", "Products", "Blogs"] 
     const [active, setActive] = useState("All")
-    
+    const setFilter = useSearchInputStore((state) => state.setFilter)
 
     const handleClick = (value) => {
     setActive(value);
+    setFilter(value);
   };
 
   
