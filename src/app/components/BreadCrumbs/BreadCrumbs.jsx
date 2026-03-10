@@ -11,7 +11,7 @@ const BreadCrumbs = () => {
     .map((crumb) => {
         currentLocation += `/${crumb}`
         return (
-          <Link className="hover:text-(--accent-secondary) text-(--accent-secondary)" to={`${currentLocation}`}>{crumb}</Link>
+          <Link className="hover:text-(--accent-secondary) text-(--accent-secondary)" to={`${currentLocation}`}>{crumb.replaceAll("-"," ")}</Link>
         )
     })
     

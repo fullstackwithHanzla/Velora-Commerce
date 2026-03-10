@@ -1,11 +1,15 @@
 import React, { Suspense, lazy } from 'react';
 import { createBrowserRouter, createRoutesFromChildren, Route } from 'react-router-dom';
-import DefaultLayout from './layouts/DefaultLayout';
-import Loading from '../shared/ui/Loading';
-import Shop from './pages/Shop';
-import Error from './pages/Error';
-import MailSuccess from './pages/MailSuccess'
+import Loading from "../shared/ui/Loading";
 
+
+const PrivacyPolicy =lazy(()=> import("./layouts/PrivacyPolicy")) 
+const DefaultLayout = lazy(() => import("./layouts/DefaultLayout"));
+const Shop = lazy(() => import("./pages/Shop"));
+const Error = lazy(() => import("./pages/Error"));
+const MailSuccess = lazy(() => import("./pages/MailSuccess"));
+const TermsAndConditions = lazy(() => import("./layouts/TermsAndConditions"));
+const SignUpLayout = lazy(() => import("./layouts/SignUpLayout"));
 // Lazy load the Home page
 const Home = lazy(() => import('./pages/Home'));
 
@@ -45,6 +49,24 @@ const router = createBrowserRouter(
         element={
           <Suspense fallback={<Loading/>}>
             <MailSuccess />
+      </Suspense>} />
+      <Route
+        path='/privacy-policy'
+        element={
+          <Suspense fallback={<Loading/>}>
+            <PrivacyPolicy />
+      </Suspense>} />
+      <Route
+        path='/terms-&-conditions'
+        element={
+          <Suspense fallback={<Loading/>}>
+            <TermsAndConditions />
+      </Suspense>} />
+      <Route
+        path='/sign-up'
+        element={
+          <Suspense fallback={<Loading/>}>
+            <SignUpLayout />
       </Suspense>} />
       
     </Route>

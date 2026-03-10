@@ -22,8 +22,8 @@ const HeaderNavBar = () => {
       checkBlogsDropDownStatus: state.checkBlogsDropDownStatus,
     }))
   )
-  const baseStyle = "list-none text-[14px] font-medium hover:text-(--accent-secondary)";
-  const dropDownNavItemStyle = "list-none text-[14px] font-medium flex items-center gap-1 cursor-pointer transition-colors duration-200 hover:text-(--accent-secondary)"
+  const baseStyle = "list-none text-[14px] font-normal hover:text-(--accent-secondary)";
+  const dropDownNavItemStyle = "list-none text-[14px] font-normal flex items-center gap-1 cursor-pointer transition-colors duration-200 hover:text-(--accent-secondary)"
   const absoluteDropdownStyle = "absolute left-[55%] top-full py-5 z-55 -translate-x-1/2 transition-all duration-200 ease-out"
   return (
     <nav className="hidden lg:flex justify-center items-center gap-5">
