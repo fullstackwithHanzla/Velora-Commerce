@@ -11,7 +11,7 @@ const BreadCrumbs = () => {
     .map((crumb) => {
         currentLocation += `/${crumb}`
         return (
-          <Link className="hover:text-(--accent-secondary) text-(--accent-secondary)" to={`${currentLocation}`}>{crumb.replaceAll("-"," ")}</Link>
+          <Link key={crumb} className="hover:text-(--accent-secondary) text-(--accent-secondary)" to={`${currentLocation}`}>{crumb.replaceAll("-"," ")}</Link>
         )
     })
     
@@ -27,9 +27,9 @@ const BreadCrumbs = () => {
         [&>li:not(:last-child)]:after:text-(--accent-secondary)
       ">
         <li key={crumb} >
-          <Link to="/" className="hover:text-(--accent-secondary) " key={crumb}>Home</Link>
+          <Link to="/" className="hover:text-(--accent-secondary) text-[10px] md:text-[14px]" key={crumb}>Home</Link>
         </li>
-        <span className='capitalize'>{crumb}</span>
+        <span className='capitalize text-[10px] md:text-[14px]'>{crumb}</span>
       </ol>
       }
     </nav>

@@ -5,9 +5,10 @@ import { GrGithub } from "react-icons/gr";
 import { AiOutlineMail } from "react-icons/ai";
 import { FaApple } from "react-icons/fa6";
 import SignUpInput from './SignUpInput';
+import { Link } from 'react-router-dom';
 const SignUp = () => {
   return (
-    <div className='bg-white rounded-xl w-full md:w-[65%] flex flex-col gap-4 p-5'>
+    <div className='bg-white rounded-xl w-full sm:w-140 flex flex-col gap-4 p-5'>
       <div className='flex flex-col gap-2 m-5 items-center text-center'>
         <h3 className='text-lg md:text-xl font-medium'>Create an Account</h3>
         <p className='text-[12px] md:text-[14px] text-gray-600 font-light'>Enter your details below</p>
@@ -24,6 +25,9 @@ const SignUp = () => {
       </div>
 
       <SignUpInput/>
+      <div className=' text-center text-[10px] sm:text-[14px]'>
+        <p>Already have an account?<Link className='text-(--accent-secondary) px-2' to="/sign-in">Sign in Now!</Link></p>
+      </div>
     </div>
   )
 }

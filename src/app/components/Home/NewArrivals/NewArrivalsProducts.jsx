@@ -93,7 +93,7 @@ const NewArrivalsProducts = () => {
                     <img src={s.thumbnail} alt={s.title} className='w-50'/>
                 </div>
                 <div className='flex flex-col min-w-full  md:w-70 items-start '>
-                    <h3 className='text-[10px] md:text-[12px] hover:text-(--accent-secondary) font-medium '>{s.title}</h3>
+                    <h3 className='text-[12px] sm:text-[14px] hover:text-(--accent-secondary) font-normal '>{s.title}</h3>
                     <div className='flex gap-1 items-center'>
                         <span className='line-through text-gray-600 text-[12px] md:text-[14px] font-medium'>${s.originalPrice}</span>
                         <span className='text-lg md:text-xl font-medium'>${s.price}</span>

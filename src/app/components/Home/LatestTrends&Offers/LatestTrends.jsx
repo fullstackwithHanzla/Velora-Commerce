@@ -1,9 +1,16 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
+import { useToast } from '../../../layouts/providers/ToastProvider'
+import { duration } from '@mui/material'
 
 const LatestTrends = () => {
-    const InputRef = useRef(null)
-    function handleSubscribe() {
-        InputRef.current.value = ""
+
+    const {showToast} = useToast()
+    const [input,setInput] = useState("")
+    
+
+    function handleSubscribe(message , type , duration = 4000){
+        
+        showToast({message,type , duration})
     }
   return (
     <div className='w-full 2xl:w-[65%] px-5 '>
@@ -14,8 +21,8 @@ const LatestTrends = () => {
             </div>
             <div className=' w-full md:w-auto'>
                 <form className='flex flex-col md:flex-row gap-2 md:gap-1'>
-                    <input className=' rounded-md px-4 py-2 md:w-60 text-[10px] md:text-[12px] bg-white focus:outline-none text-black' type="email" required placeholder='Enter Your Email' ref={InputRef} />
-                    <button onClick={handleSubscribe} className='px-4 py-2.5 text-[10px] md:text-[12px] bg-(--accent-secondary) rounded-md hover:bg-blue-600'>Subscribe</button>
+                    <input onChange={(e)=>setInput(e.target.value)} className=' rounded-md px-4 py-2 md:w-60 text-[10px] md:text-[12px] bg-white focus:outline-none text-black' type="email" required placeholder='Enter Your Email' />
+                    <button type='button' disabled={!input.includes("@")} onClick={()=>handleSubscribe("Thanks for subscribing! You'll now receive the latest trends, offers, and discount codes.","success")} className='px-4 py-2.5 text-[10px] md:text-[12px] bg-(--accent-secondary) rounded-md hover:bg-blue-600'>Subscribe</button>
                 </form>
             </div>
         </div>
