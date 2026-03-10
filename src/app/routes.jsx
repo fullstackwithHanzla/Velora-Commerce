@@ -3,6 +3,8 @@ import { createBrowserRouter, createRoutesFromChildren, Route } from 'react-rout
 import DefaultLayout from './layouts/DefaultLayout';
 import Loading from '../shared/ui/Loading';
 import Shop from './pages/Shop';
+import Error from './pages/Error';
+import MailSuccess from './pages/MailSuccess'
 
 // Lazy load the Home page
 const Home = lazy(() => import('./pages/Home'));
@@ -26,6 +28,25 @@ const router = createBrowserRouter(
           </Suspense>
         }
       />
+      <Route
+        path='/error'
+        element={
+          <Suspense fallback={<Loading/>}>
+            <Error />
+      </Suspense>} />
+      <Route
+        path='*'
+        element={
+          <Suspense fallback={<Loading/>}>
+            <Error />
+      </Suspense>} />
+      <Route
+        path='/mail-success'
+        element={
+          <Suspense fallback={<Loading/>}>
+            <MailSuccess />
+      </Suspense>} />
+      
     </Route>
   )
 );

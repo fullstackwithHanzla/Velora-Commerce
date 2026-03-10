@@ -3,10 +3,11 @@ import { newProductsData } from '../../../../features/settings/api'
 import { Link } from 'react-router-dom';
 
 
-const Products = memo(({products}) => {
+const Products = memo(({products }) => {
+    
   return (
     <>
-        <h3 className='font-light  text-lg lg:text-xl text-center md:text-start'>PRODUCTS</h3>
+        <h3 className='font-medium  text-lg lg:text-xl text-center md:text-start'>PRODUCTS</h3>
             <div className='flex flex-col gap-2'>
                 {products?.map((prod) => (
                     <Link to="" key={prod.id} className='flex text-center md:text-start flex-col md:flex-row rounded-md items-center gap-3 hover:bg-gray-400/10 md:px-5 py-2'>

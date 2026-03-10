@@ -26,10 +26,10 @@ const BreadCrumbs = () => {
         [&>li:not(:last-child)]:after:mx-2
         [&>li:not(:last-child)]:after:text-(--accent-secondary)
       ">
-        <li key={crumb}>
-          <Link to="/" className="hover:text-(--accent-secondary)" key={crumb}>Home</Link>
+        <li key={crumb} >
+          <Link to="/" className="hover:text-(--accent-secondary) " key={crumb}>Home</Link>
         </li>
-        {crumb}
+        <span className='capitalize'>{crumb}</span>
       </ol>
       }
     </nav>

@@ -11,6 +11,7 @@ import AddToCartButton from '../../../../shared/ui/AddToCartButton'
 import AddToWishListButton from '../../../../shared/ui/AddToWishListButton'
 import QuickViewStars from './QuickViewStars'
 import QuickProductThumbnail from './QuickProductThumbnail'
+import OutOfStock from '../../../../shared/ui/OutOfStock'
 
 const QuickView = memo(() => {
     const {quickViewId ,quickViewActive ,quickViewActiveStatus, closeQuickView} = useQuickViewStore(
@@ -90,7 +91,7 @@ const QuickView = memo(() => {
                         <QuickViewQuantity/>
                     </div>
                         <div className='flex items-center gap-1 '>
-                            <AddToCartButton/>
+                            {qvProd.inStock? <AddToCartButton/> : <OutOfStock/>}
                             <AddToWishListButton/>
                         </div>
                 </div>

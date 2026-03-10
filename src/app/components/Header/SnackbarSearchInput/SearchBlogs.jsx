@@ -3,9 +3,10 @@ import { blogsData } from '../../../../features/settings/BlogsData'
 import { Link } from 'react-router-dom'
 
 const SearchBlogs = memo(({blogs}) => {
+    
   return (
     <>
-        <h3 className='font-light  text-lg text-center lg:text-xl md:text-start'>BLOGS</h3>
+        <h3 className='font-medium  text-lg text-center lg:text-xl md:text-start'>BLOGS</h3>
             <div className='flex flex-col  gap-2'>
                 {blogs?.map((blog) => (
                     <Link to="" key={blog.id} className='flex-col flex md:flex-row  rounded-md items-center gap-3 hover:bg-gray-400/10 px-5 py-2'>
