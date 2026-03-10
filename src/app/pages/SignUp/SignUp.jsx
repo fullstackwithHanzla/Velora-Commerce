@@ -13,10 +13,10 @@ const SignUp = () => {
         <h3 className='text-lg md:text-xl font-medium'>Create an Account</h3>
         <p className='text-[12px] md:text-[14px] text-gray-600 font-light'>Enter your details below</p>
       </div>
-      <SignUpMethods icon={FcGoogle}>Sign Up with Google</SignUpMethods>
-      <SignUpMethods icon={GrGithub}>Sign Up with Github</SignUpMethods>
-      <SignUpMethods icon={AiOutlineMail}>Sign Up with Email</SignUpMethods>
-      <SignUpMethods icon={FaApple}>Sign Up with Apple</SignUpMethods>
+      <SignUpMethods method="Google" icon={FcGoogle}>Sign Up with Google</SignUpMethods>
+      <SignUpMethods method="Github" icon={GrGithub}>Sign Up with Github</SignUpMethods>
+      <SignUpMethods method="Email" icon={AiOutlineMail}>Sign Up with Email</SignUpMethods>
+      <SignUpMethods method="Apple" icon={FaApple}>Sign Up with Apple</SignUpMethods>
 
       <div className='flex items-center gap-3 w-full my-5'>
         <div className='flex-1 h-px bg-gray-600/20 font-medium'></div>
