@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 
@@ -7,6 +7,7 @@ import Sidebar from '../components/Header/Sidebar'
 import SnackbarCart from '../components/Header/SnackbarCart/SnackbarCart'
 import BreadCrumbs from '../components/BreadCrumbs/BreadCrumbs'
 import ScrollToTopButton from '../../shared/ui/ScrollToTopButton'
+import Loading from '../../shared/ui/Loading'
 
 const DefaultLayout = () => {
   return (
@@ -22,7 +23,9 @@ const DefaultLayout = () => {
           <BreadCrumbs/>
         </aside>
       <main className='grow flex items-center flex-col bg-(--bg-page)'>
-        <Outlet/>
+        <Suspense fallback={<Loading />}>
+          <Outlet/>
+        </Suspense>
         <ScrollToTopButton/>
       </main>
       <Footer/>

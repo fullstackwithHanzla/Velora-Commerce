@@ -1,16 +1,13 @@
 import React from 'react'
+import SignIn from '../pages/SignIn/SignIn'
 
 
-import SignUp from '../pages/SignUp/SignUp'
-
-
-
-const SignUpLayout = () => {
+const SignInLayout = () => {
   return (
     <div className='flex w-full  md:px-10 items-center justify-center m-5 md:m-10'>
-      <SignUp/>
+      <SignIn/>
     </div>
   )
 }
 
-export default SignUpLayout
+export default SignInLayout

@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { memo, useState } from 'react'
 import { LuEye } from "react-icons/lu";
 import { LuEyeOff } from "react-icons/lu";
 
-const SignUpInputComponent = ({register , label , inputType = "text" , placeholder  = "EnterSomething..." , registerValue , passwordIcon = false}) => {
+const SignInInputComponent = memo(({register , label , inputType = "text" , placeholder  = "Enter Something..." , registerValue , passwordIcon = false}) => {
     
   const [showPassIcon,setShowPassIcon] = useState(false)
   
   return (
-    <div>
+    <>
         <div className='flex gap-1 '>
           <p className='text-[14px]'>{label}</p>
           <span className='text-red-600'>*</span>
@@ -19,8 +19,8 @@ const SignUpInputComponent = ({register , label , inputType = "text" , placehold
             <input type={passwordIcon? showPassIcon === false ? "password" : "text" : inputType} className='border text-[14px] border-gray-600/30 px-5 py-2 rounded-md w-full my-2 focus:outline-none relative' placeholder={placeholder}  {...register(`${registerValue}`)}/>
             </div>
             
-    </div>
+    </>
   )
-}
+})
 
-export default SignUpInputComponent
+export default SignInInputComponent

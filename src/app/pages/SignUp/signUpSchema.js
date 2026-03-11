@@ -10,7 +10,11 @@ export const signUpSchema = z.object({
     .regex(/^[A-Za-z\s'-]+$/, "Full name contains invalid characters")
     .refine(name => !/\s{2,}/.test(name), {
       message: "Full name cannot contain consecutive spaces",
-    }),
+    })
+    .refine(name => !name.includes("admin") ,{
+      message : "Full name cannot use reserved word 'admin'"
+    }
+  ),
 
   Email: z
     .string()
