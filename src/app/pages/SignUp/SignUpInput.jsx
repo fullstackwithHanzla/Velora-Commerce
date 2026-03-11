@@ -5,10 +5,10 @@ import LoadingCircle from '../../../shared/ui/LoadingCircle';
 import {z} from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signUpSchema } from './signUpSchema';
-
+import { useToast } from '../../layouts/providers/ToastProvider'
 const SignUpInput = () => {
 
-  
+  const {showToast} = useToast()
 
   const {register,handleSubmit , formState } = useForm({
     resolver : zodResolver(signUpSchema),
@@ -19,9 +19,16 @@ const SignUpInput = () => {
   
   const FullNameErrors = formState.errors.FullName?.types? Object.values(formState.errors.FullName?.types).flat(): []
   const EmailErrors = formState.errors.Email?.types? Object.values(formState.errors.Email?.types).flat(): []
+  const PasswordErrors = formState.errors.Password?.types? Object.values(formState.errors.Password?.types).flat(): []
+  const ConfirmPasswordErrors = formState.errors.ConfirmPassword?.types? Object.values(formState.errors.ConfirmPassword?.types).flat(): []
   
   const onSubmit = async (data) => {
     await new Promise(res => setTimeout(res,500))
+    showToast({
+      message : "Authentication is not connected yet. Signup is currently disabled",
+      type : "info",
+      duration : 4000,
+    })
     console.log(data);
   }
   
@@ -44,9 +51,20 @@ const SignUpInput = () => {
               placeholder='Password' 
               passwordIcon={true}
               registerValue="Password"/>
+              <ol className=' px-5 '>
+                {PasswordErrors.length > 0 && PasswordErrors.map((error , index) => (
+                  <li key={index} className='text-red-600 my-1 list-disc text-[12px]'>{error}</li>
+                ))}
+              </ol>
               <SignUpInputComponent register={register} label="Confirm Password" inputType='password' placeholder='Confirm Password' 
               passwordIcon={true}
               registerValue="ConfirmPassword"/>
+              <ol className=' px-5 '>
+                {ConfirmPasswordErrors.length > 0 && ConfirmPasswordErrors.map((error , index) => (
+                  <li key={index} className='text-red-600 my-1 list-disc text-[12px]'>{error}</li>
+                ))}
+              </ol>
+              
           <button type='submit' className={`border text-white py-3 rounded-lg transition-colors flex items-center justify-center gap-3 duration-300 text-[13px] ease-in-out hover:bg-(--accent-secondary) ${formState.isSubmitting ? "bg-gray-600":"bg-(--accent-primary)"}`} disabled={formState.isSubmitting}>{formState.isSubmitting? <><span>Creating Account</span><LoadingCircle/></>: "Create Account"}</button>
           
       </form>

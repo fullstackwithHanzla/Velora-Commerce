@@ -4,7 +4,7 @@ import SignUp from '../pages/SignUp/SignUp'
 
 const SignUpLayout = () => {
   return (
-    <div className='flex w-full px-10 items-center justify-center m-10'>
+    <div className='flex w-full  md:px-10 items-center justify-center m-5 md:m-10'>
       <SignUp/>
     </div>
   )

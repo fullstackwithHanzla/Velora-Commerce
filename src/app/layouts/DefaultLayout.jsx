@@ -6,6 +6,7 @@ import { Outlet } from 'react-router-dom'
 import Sidebar from '../components/Header/Sidebar'
 import SnackbarCart from '../components/Header/SnackbarCart/SnackbarCart'
 import BreadCrumbs from '../components/BreadCrumbs/BreadCrumbs'
+import ScrollToTopButton from '../../shared/ui/ScrollToTopButton'
 
 const DefaultLayout = () => {
   return (
@@ -22,6 +23,7 @@ const DefaultLayout = () => {
         </aside>
       <main className='grow flex items-center flex-col bg-(--bg-page)'>
         <Outlet/>
+        <ScrollToTopButton/>
       </main>
       <Footer/>
     </div>

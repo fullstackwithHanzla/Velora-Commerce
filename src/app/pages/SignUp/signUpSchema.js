@@ -1,76 +1,38 @@
-import z from "zod";
-
+import { z } from "zod";
 
 export const signUpSchema = z.object({
-      FullName : z.string(),
-      Email : z.string(),
-      Password : z.string(),
-      ConfirmPassword : z.string(),
-  }).superRefine((data , ctx) => {
-    const {FullName , Email , Password , ConfirmPassword} = data;
 
-    if(FullName.includes("admin")){
-      ctx.addIssue({
-        message : "Full name cannot contain 'admin' ",
-        path : ["FullName"],
-        code : z.ZodIssueCode.custom
-      })
-    }
+  FullName: z
+    .string()
+    .trim()
+    .min(4, "Full name must be at least 4 characters")
+    .max(25, "Full name is too long")
+    .regex(/^[A-Za-z\s'-]+$/, "Full name contains invalid characters")
+    .refine(name => !/\s{2,}/.test(name), {
+      message: "Full name cannot contain consecutive spaces",
+    }),
 
-    if(FullName.length < 4 ){
-      ctx.addIssue({
-        message : "Full name must be at least 4 characters long.",
-        path : ["FullName"],
-        code : z.ZodIssueCode.custom
-      })
-    }
-    if(!/^[A-Za-z\s]+$/.test(FullName)){
-      ctx.addIssue({
-        message : "Full name must contain only letters and spaces.",
-        path : ["FullName"],
-        code : z.ZodIssueCode.custom
-      })
-    }
-    if(/\s{2,}/.test(FullName)){
-      ctx.addIssue({
-        message : "Full name cannot contain multiple consecutive spaces.",
-        path : ["FullName"],
-        code : z.ZodIssueCode.custom
-      })
-    }
-    if(/_/.test(FullName)){
-      ctx.addIssue({
-        message : "Full name cannot contain underscores (_) .",
-        path : ["FullName"],
-        code : z.ZodIssueCode.custom
-      })
-    }
-    if(!z.string().email().safeParse(Email).success){
-      ctx.addIssue({
-        message : "Please enter a valid email address.",
-        path : ["Email"],
-        code : z.ZodIssueCode.custom
-      })
-    }
-    if(Email !== Email.toLowerCase()){
-      ctx.addIssue({
-        message : "Email address must be in lowercase.",
-        path : ["Email"],
-        code : z.ZodIssueCode.custom
-      })
-    }
-    if(/@(test|example)\./i.test(Email)){
-      ctx.addIssue({
-        message : "Please use a valid personal email address.",
-        path : ["Email"],
-        code : z.ZodIssueCode.custom
-      })
-    }
-    if(/^admin@/.test(Email)){
-      ctx.addIssue({
-        message : "Admin email addresses are not allowed.",
-        path : ["Email"],
-        code : z.ZodIssueCode.custom
-      })
-    }
-  })
+  Email: z
+    .string()
+    .trim()
+    .toLowerCase()
+    .email("Invalid email address")
+    .refine(email => !/(test|example)/i.test(email), {
+      message: "Disposable/test emails are not allowed",
+    }),
+
+  Password: z
+    .string()
+    .min(8, "Password must be at least 8 characters")
+    .max(30,"Password is too long")
+    .regex(/[a-z]/, "Password must include a lowercase letter")
+    .regex(/[A-Z]/, "Password must include an uppercase letter")
+    .regex(/[0-9]/, "Password must include a number")
+    .regex(/[!@#$%^&*?~]/, "Password must include a special character"),
+
+  ConfirmPassword: z.string()
+
+}).refine(data => data.Password === data.ConfirmPassword, {
+  message: "Passwords do not match",
+  path: ["ConfirmPassword"],
+});
