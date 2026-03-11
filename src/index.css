@@ -22,8 +22,9 @@ body{
 
 @import "tailwindcss";
 
-
-
+.PhoneInputInput{
+    outline: none;
+}
 
 @theme {
     /* BACKGROUNDS */

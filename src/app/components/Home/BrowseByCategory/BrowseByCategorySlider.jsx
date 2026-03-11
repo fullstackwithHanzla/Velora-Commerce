@@ -51,6 +51,7 @@ const BrowseByCategorySlider = () => {
         >
           {slides.map((s) => (
             <Link
+              to={`/categories/${s.categoryName.replaceAll(" ","-")}`}
               key={s.id}
               className="shrink-0  flex flex-col items-center gap-5 p-5 hover:text-(--accent-secondary)"
               style={{ width: `${100 / visibleCount}%` }}

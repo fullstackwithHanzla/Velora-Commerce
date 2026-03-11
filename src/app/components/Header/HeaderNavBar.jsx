@@ -115,7 +115,7 @@ const HeaderNavBar = () => {
       </div>
 
       <li className={`${baseStyle}`}>
-        <NavLink to="/">Contact</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
       </li>
     </nav>
   )

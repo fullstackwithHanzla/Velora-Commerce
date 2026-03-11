@@ -7,6 +7,7 @@ const Home = lazy(() => import("./pages/Home"));
 const Shop = lazy(() => import("./pages/Shop"));
 const Error = lazy(() => import("./pages/Error"));
 const MailSuccess = lazy(() => import("./pages/MailSuccess"));
+const Contact = lazy(() => import("./pages/Contact/Contact"));
 const PrivacyPolicy = lazy(() => import("./layouts/PrivacyPolicy"));
 const TermsAndConditions = lazy(() => import("./layouts/TermsAndConditions"));
 const SignUpLayout = lazy(() => import("./layouts/SignUpLayout"));
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       { path: "sign-up", element: <SignUpLayout /> },
       { path: "error", element: <Error /> },
       {path : "sign-in", element : <SignInLayout/>},
+      {path : "contact", element : <Contact/>},
       { path: "*", element: <Error /> }
     ]
   }

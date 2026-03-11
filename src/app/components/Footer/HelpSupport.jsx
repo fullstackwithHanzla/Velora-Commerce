@@ -6,6 +6,7 @@ import { MdFacebook } from "react-icons/md";
 import { FiTwitter } from "react-icons/fi";
 import { FaInstagram } from "react-icons/fa";
 import { IoLogoLinkedin } from "react-icons/io";
+
  const contactArray = [
   {
     label: "685 Market Street, Las Vegas, LA 95820, United States",
@@ -50,19 +51,19 @@ const socialMediaLinks = [
 ]
 
 
-const HelpSupport = () => {
+const HelpSupport = ({flexitems , heading }) => {
   return (
-    <div className='flex flex-col text-[12px] md:text-[14px]'>
-      <h3 className='text-lg  font-medium'>
-        Help & Support
-      </h3>
+    <div className={`flex flex-col ${flexitems} text-[12px] md:text-[14px]`}>
+      {heading && <h3 className='text-lg  font-medium'>
+        {heading}
+      </h3>}
 
 
       <div className='py-3  w-[70%]'>
         {contactArray.map(({label,type , href} , index) => {
         const Icon = iconMap[type];
         return (
-          <div key={index} className='flex items-start gap-1 mt-3'>
+          <div key={index} className='flex gap-2 mt-3 '>
           <div>{<Icon className="size-6 text-(--accent-secondary)"/>}</div>
           <a href={href} target='blanked' className='text-gray-600/80 w-[80%]wrap-break-words'>{label}</a>
         </div>
