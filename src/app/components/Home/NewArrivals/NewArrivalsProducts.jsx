@@ -9,7 +9,7 @@ import { useShallow } from 'zustand/shallow';
 import { useToast } from '../../../layouts/providers/ToastProvider';
 import { Link } from 'react-router-dom';
 
-const NewArrivalsProducts = memo(({products , start , end}) => {
+const NewArrivalsProducts = memo(({products , start , end , shopDifferentPage = false , noColumngrid =  false}) => {
     const {showToast} = useToast()
     const slides = products;
     const [isWishListHovered , setIsWishListHovered] = useState(false)
@@ -53,10 +53,10 @@ const NewArrivalsProducts = memo(({products , start , end}) => {
 
   return (
     <>
-        <div className='grid mx-10 my-20  lg:mx-auto grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-7 gap-x-5'>
-        {selectSlides.map((s) => (
-            <div  className=' flex flex-col gap-3  group items-center  max-w-full md:min-w-full' key={s.id}>
-                <div className='h-70 relative    overflow-hidden min-w-full md:w-70 flex items-center justify-center border border-gray-600/10 rounded-lg bg-[#F6F7FB]'>
+        <div className={`grid   lg:mx-auto grid-cols-1    gap-x-5 ${noColumngrid? "grid-cols-1 gap-y-2 mx-2 my-2 md:my-10":"md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-7 mx-10 my-20"}`}>
+        {selectSlides?.map((s) => (
+            <div  className={` flex flex-col gap-3  group items-center   ${noColumngrid? "flex-row bg-white rounded-md gap-5 md:gap-20":"max-w-full md:min-w-full"}`} key={s.id}>
+                <div className={` relative  grow     flex items-center justify-center border border-gray-600/10  ${shopDifferentPage ? "bg-white" : "bg-[#F6F7FB]"} ${noColumngrid? "min-w-[30%] p-5 md:p-10":"min-w-full justify-center h-70 md:w-70 overflow-hidden rounded-lg"}`}>
                     <div className={`absolute flex  justify-center items-end  transition-all duration-400  ease-in-out opacity-0 -bottom-20 
                         group-hover:bottom-2
                         group-hover:opacity-100
@@ -92,13 +92,13 @@ const NewArrivalsProducts = memo(({products , start , end}) => {
                         <span className='text-[10px] md:text-[12px]'>{s.salesPercentage && s.inStock? s.salesPercentage : null}{s.inStock? "% OFF" : "Out Of Stock"}</span>
                     </div>
                     
-                    <img src={s.thumbnail} alt={s.title} className='w-50'/>
+                    <img src={s.thumbnail} alt={s.title} className={`${noColumngrid? "w-50 md:w-70":"w-50"}`}/>
                 </div>
-                <div className='flex flex-col min-w-full  md:w-70 items-start '>
-                    <h3 className='text-[12px] sm:text-[14px] hover:text-(--accent-secondary) font-normal '>{s.title}</h3>
+                <div className={`flex flex-col  items-start ${noColumngrid? "max-w-[50%] px-5 md:max-w-[60%] w-full":"min-w-full  md:w-70"}`}>
+                    <h3 className={`${noColumngrid?"text-[10px] md:text-[12px]":"text-[12px] sm:text-[14px]"} hover:text-(--accent-secondary) font-normal `}>{s.title}</h3>
                     <div className='flex gap-1 items-center'>
-                        <span className='line-through text-gray-600 text-[12px] md:text-[14px] font-medium'>${s.originalPrice}</span>
-                        <span className='text-lg md:text-xl font-medium'>${s.price}</span>
+                        <span className={`line-through text-gray-600 ${noColumngrid?"text-[8px] md:text-[12px]":"text-[12px] md:text-[14px]"} font-medium`}>${s.originalPrice}</span>
+                        <span className={`${noColumngrid?"text-sm md:text-lg":"text-lg md:text-xl"} font-medium`}>${s.price}</span>
                     </div>
                 </div>
             </div>
