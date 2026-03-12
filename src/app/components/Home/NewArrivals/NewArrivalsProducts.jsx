@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { memo, useState } from 'react'
 import { newProductsData } from '../../../../features/settings/api'
 import { IoEyeOutline } from "react-icons/io5";
 import { FaHeart } from "react-icons/fa";
@@ -9,9 +9,9 @@ import { useShallow } from 'zustand/shallow';
 import { useToast } from '../../../layouts/providers/ToastProvider';
 import { Link } from 'react-router-dom';
 
-const NewArrivalsProducts = () => {
+const NewArrivalsProducts = memo(({products , start , end}) => {
     const {showToast} = useToast()
-    const slides = newProductsData;
+    const slides = products;
     const [isWishListHovered , setIsWishListHovered] = useState(false)
     const [isQuickViewHovered , setIsQuickViewHovered] = useState(false)
     const [isWishListActive,setIsWishListActive] = useState(false)
@@ -49,10 +49,12 @@ const NewArrivalsProducts = () => {
         })
     }
 
+    const selectSlides =  start && end ? slides?.slice(start,end) : slides?.slice(0,8)
+
   return (
     <>
         <div className='grid mx-10 my-20  lg:mx-auto grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-7 gap-x-5'>
-        {slides.slice(0,8).map((s) => (
+        {selectSlides.map((s) => (
             <div  className=' flex flex-col gap-3  group items-center  max-w-full md:min-w-full' key={s.id}>
                 <div className='h-70 relative    overflow-hidden min-w-full md:w-70 flex items-center justify-center border border-gray-600/10 rounded-lg bg-[#F6F7FB]'>
                     <div className={`absolute flex  justify-center items-end  transition-all duration-400  ease-in-out opacity-0 -bottom-20 
@@ -77,8 +79,8 @@ const NewArrivalsProducts = () => {
                                 toggleWishList(s.id);
                                 showToastMessage(!isWishListActive? "Product added in wishlist" : "Product removed from wishlist" , !isWishListActive ? "success" : "info")
                                 }
-                            } onMouseEnter={() => setIsWishListHovered(!isWishListHovered)} onMouseLeave={()=>setIsWishListHovered(false)} className='bg-white relative p-2 rounded-md border border-gray-400/30 hover:text-(--accent-secondary)'>
-                                <div className={`border border-gray-600/20 absolute bottom-11 text-[13px] -right-7 bg-white transition-all duration-300 ease-in-out  px-4 py-1 rounded-md font-medium ${isWishListHovered? "opacity-100" : "opacity-0"}`}>Wishlist</div>
+                            } onMouseEnter={() => setIsWishListHovered(!isWishListHovered)} onMouseLeave={()=>setIsWishListHovered(false)} className='bg-white relative p-2 rounded-md border  border-gray-400/30 hover:text-(--accent-secondary)'>
+                                <div className={`border border-gray-600/20 absolute bottom-11 text-[13px] w-35 -right-15 bg-white min-w-full transition-all duration-300 ease-in-out  px-2 py-1 rounded-md font-medium ${isWishListHovered? "opacity-100" : "opacity-0"}`}>{isWishListActive? "Added to Wishlist" : "Add to Wishlist"}</div>
                                 {wishListId.includes(s.id)? <FaHeart className={`'size-5 stroke-1`}/>: <FaRegHeart className={`'size-5 stroke-1`}/>}
                                 
                             </button>
@@ -106,6 +108,6 @@ const NewArrivalsProducts = () => {
     <hr className='text-gray-600/20'/>
     </>
   )
-}
+})
 
 export default NewArrivalsProducts

@@ -9,15 +9,15 @@ const QuickLinks = () => {
   },
   {
     label: "Refund Policy",
-    href: "/refund-policy",
+    href: "/terms-&-conditions",
   },
   {
     label: "Terms of Use",
-    href: "/terms-of-use",
+    href: "/terms-&-conditions",
   },
   {
     label: "FAQ's",
-    href: "/faqs",
+    href: "/terms-&-conditions",
   },
   {
     label: "Contact",
@@ -33,7 +33,7 @@ const QuickLinks = () => {
 
       {quickLinksArray.map(({label,href} , index) => {
         return (
-            <Link key={index} to={`/${href}`} className='hover:text-(--accent-secondary) text-gray-600/80'>
+            <Link key={index} to={href} className='hover:text-(--accent-secondary) text-gray-600/80'>
             {label}
         </Link>
         )

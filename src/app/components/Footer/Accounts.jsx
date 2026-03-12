@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const accountsArray = [
   {
     label: "Login / Register",
-    href: "/login",
+    href: "/sign-up",
   },
   {
     label: "Cart",
@@ -29,7 +29,7 @@ const Accounts = () => {
 
       {accountsArray.map(({label,href} , index) => {
         return (
-            <Link key={index} to={`/${href}`} className='hover:text-(--accent-secondary) text-gray-600/80'>
+            <Link key={index} to={href} className='hover:text-(--accent-secondary) text-gray-600/80'>
             {label}
         </Link>
         )

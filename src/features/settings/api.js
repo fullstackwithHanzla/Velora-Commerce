@@ -1,4 +1,3 @@
-// productsData.js (complete with local .webp paths + full details)
 export const newProductsData = [
   // 1. Apple Watch Ultra
   {
@@ -18,6 +17,8 @@ export const newProductsData = [
     inStock: true,
     colors: ["Orange Trail Loop", "Olive Green Trail Loop"],
     selectedColor: "Orange Trail Loop",
+    launchDate: "September 22, 2023",
+    unitsSold: 1250000,  // High volume for flagship rugged watch
     description: "The rugged Apple Watch Ultra is built for extreme adventures with a 49mm aerospace-grade titanium case, the brightest Apple Watch display ever (up to 3000 nits), up to 36 hours battery life (60 in low-power mode), dual-frequency GPS for precision tracking, depth gauge for diving up to 40m, siren for emergencies, and advanced health features like ECG, blood oxygen, temperature sensing, and sleep apnea notifications. Perfect for athletes, explorers, and endurance users.",
     specifications: {
       case: "49mm aerospace-grade titanium",
@@ -35,7 +36,6 @@ export const newProductsData = [
       { user: "Alex T.", comment: "Incredible for hiking and diving – battery lasts forever!", rating: 5 }
     ]
   },
-
   // 2. Everfit Treadmill
   {
     id: 1002,
@@ -54,6 +54,8 @@ export const newProductsData = [
     inStock: true,
     colors: ["White Frame with Black Accents", "Black Frame"],
     selectedColor: "White Frame with Black Accents",
+    launchDate: "N/A (Generic model, ~2023)",
+    unitsSold: 45000,
     description: "Compact foldable electric treadmill for home use with silent motor, adjustable incline levels, LED display for speed/time/distance/calories, and safety features like emergency stop clip. Ideal for walking, jogging, and light running in small spaces – supports up to 120kg user weight with cushioned deck for joint protection.",
     specifications: {
       motorPower: "2.0-3.0 HP peak",
@@ -71,7 +73,6 @@ export const newProductsData = [
       { user: "Sara M.", comment: "Quiet and easy to store – great for apartment workouts!", rating: 4 }
     ]
   },
-
   // 3. iPad mini
   {
     id: 1003,
@@ -90,6 +91,8 @@ export const newProductsData = [
     inStock: false,
     colors: ["Sky Blue", "Space Gray"],
     selectedColor: "Sky Blue",
+    launchDate: "October 23, 2024",
+    unitsSold: 850000,
     description: "Ultra-portable iPad mini with powerful A17 Pro chip for Apple Intelligence, 8.3-inch Liquid Retina display, all-day battery, support for Apple Pencil Pro, and pro features like USB-C. Perfect for reading, note-taking, sketching, and on-the-go productivity.",
     specifications: {
       display: "8.3-inch Liquid Retina (2266x1488), P3 wide color, True Tone",
@@ -106,7 +109,6 @@ export const newProductsData = [
       { user: "Jamie L.", comment: "Super fast and portable – Apple Intelligence features are game-changing!", rating: 5 }
     ]
   },
-
   // 4. Havit Gamepad
   {
     id: 1004,
@@ -125,6 +127,8 @@ export const newProductsData = [
     inStock: true,
     colors: ["Gray", "Black"],
     selectedColor: "Gray",
+    launchDate: "N/A (Budget accessory, ~2022)",
+    unitsSold: 320000,
     description: "Affordable wired USB gamepad with dual vibration motors, ergonomic design, 12 action buttons, analog sticks, and plug-and-play compatibility for PC gaming. Great for retro emulators, racing, fighting, and casual games.",
     specifications: {
       connectivity: "USB 2.0 wired (1.5m cable)",
@@ -139,7 +143,6 @@ export const newProductsData = [
       { user: "Gamer X", comment: "Solid build for the price – vibrations feel great in racing games.", rating: 4 }
     ]
   },
-
   // 5. Rangs 43 Inch TV
   {
     id: 1005,
@@ -158,6 +161,8 @@ export const newProductsData = [
     inStock: false,
     colors: ["Black with Green Accents", "Black Frameless"],
     selectedColor: "Black with Green Accents",
+    launchDate: "N/A (Local/brand-specific model, ~2024)",
+    unitsSold: 68000,
     description: "Frameless 43-inch Full HD Android Smart TV with Google certification, built-in apps, voice control, double glass panel for slim design, and vibrant LED display. Enjoy streaming, gaming, and 4K upscaling on a budget-friendly big screen.",
     specifications: {
       screenSize: "43 inch frameless",
@@ -174,7 +179,6 @@ export const newProductsData = [
       { user: "TV Fan", comment: "Great picture for the price – Android apps load fast.", rating: 5 }
     ]
   },
-
   // 6. MacBook Air M1
   {
     id: 1006,
@@ -192,6 +196,8 @@ export const newProductsData = [
     inStock: true,
     colors: ["Space Gray"],
     selectedColor: "Space Gray",
+    launchDate: "November 17, 2020",
+    unitsSold: 5200000,  // Massive historical sales for M1 Air
     description: "Iconic fanless MacBook Air with revolutionary M1 chip for blazing performance, up to 18 hours battery life, stunning 13.3-inch Retina display, and silent operation. Still a powerhouse for everyday tasks, creative work, and light editing in 2026.",
     specifications: {
       chip: "Apple M1 with 8-core CPU, 7-core GPU",
@@ -208,7 +214,6 @@ export const newProductsData = [
       { user: "Dev R.", comment: "Still flies through coding and browsing – best value used Mac.", rating: 5 }
     ]
   },
-
   // 7. iMac 24-inch M4
   {
     id: 1007,
@@ -227,6 +232,8 @@ export const newProductsData = [
     inStock: true,
     colors: ["Silver", "Gray Stand Variant"],
     selectedColor: "Silver",
+    launchDate: "November 8, 2024",
+    unitsSold: 420000,
     description: "All-in-one 24-inch iMac with vibrant 4.5K Retina display, powerful M4 chip for Apple Intelligence, slim design, and built-in accessories. Ideal for home office, creative pros, and family use with excellent color accuracy and performance.",
     specifications: {
       display: "24-inch 4.5K Retina (4480x2520), P3 wide color",
@@ -243,7 +250,6 @@ export const newProductsData = [
       { user: "Creative P.", comment: "Colors pop on the 4.5K screen – perfect for photo/video editing.", rating: 5 }
     ]
   },
-
   // 8. iPhone 16 Pro
   {
     id: 1008,
@@ -262,6 +268,8 @@ export const newProductsData = [
     inStock: true,
     colors: ["Titanium Gray (#808080)", "Pink"],
     selectedColor: "Titanium Gray",
+    launchDate: "September 20, 2024",
+    unitsSold: 3800000,
     description: "Pro-level iPhone with A18 Pro chip, advanced camera system (48MP main + ultra-wide/telephoto), titanium frame, Action button, and Apple Intelligence features. Stunning display and all-day battery for photography, gaming, and productivity.",
     specifications: {
       display: "6.3-inch Super Retina XDR OLED, 120Hz ProMotion",
@@ -277,7 +285,6 @@ export const newProductsData = [
       { user: "Photo Pro", comment: "Camera system is unreal – 48MP shots look incredible.", rating: 5 }
     ]
   },
-
   // 9. Portable Blender/Grinder
   {
     id: 1009,
@@ -296,6 +303,8 @@ export const newProductsData = [
     inStock: true,
     colors: ["White", "Black"],
     selectedColor: "White",
+    launchDate: "N/A (Generic portable model, ~2023)",
+    unitsSold: 210000,
     description: "Compact rechargeable portable blender/grinder for smoothies, shakes, spices, and baby food on the go. USB charging, multiple blades for blending/ grinding, and leak-proof design – perfect for travel, gym, or office.",
     specifications: {
       capacity: "400-600ml jar",
@@ -310,7 +319,6 @@ export const newProductsData = [
       { user: "Fitness G.", comment: "Makes perfect protein shakes on the go – easy to clean too.", rating: 5 }
     ]
   },
-
   // 10. MacBook Air M4
   {
     id: 1010,
@@ -329,6 +337,8 @@ export const newProductsData = [
     inStock: true,
     colors: ["Midnight Gray", "Space Gray Variant"],
     selectedColor: "Midnight Gray",
+    launchDate: "March 12, 2025",
+    unitsSold: 950000,  // Recent model, strong early sales
     description: "Latest ultra-thin MacBook Air with M4 chip for exceptional speed and efficiency, Liquid Retina display, up to 18 hours battery, and built for Apple Intelligence. Ideal for students, creators, and professionals needing portable power.",
     specifications: {
       chip: "Apple M4 with 10-core CPU, 8-10 core GPU",
