@@ -91,7 +91,7 @@ const QuickView = memo(() => {
                         <QuickViewQuantity/>
                     </div>
                         <div className='flex items-center gap-1 '>
-                            {qvProd.inStock? <AddToCartButton/> : <OutOfStock/>}
+                            {qvProd.inStock ? <AddToCartButton qvProd={qvProd}/> : <OutOfStock/>}
                             <AddToWishListButton/>
                         </div>
                 </div>

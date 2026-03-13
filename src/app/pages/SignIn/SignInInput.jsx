@@ -3,7 +3,7 @@ import SignInInputComponent from './SignInInputComponent'
 import { useForm } from 'react-hook-form'
 import { useToast } from '../../layouts/providers/ToastProvider'
 import { zodResolver } from '@hookform/resolvers/zod'
-import LoadingCircle from '../../../shared/ui/LoadingCircle'
+import LoadingCircleMini from '../../../shared/ui/LoadingCircleMini'
 import { Link, useNavigate } from 'react-router-dom'
 import SignInMethods from './SignInMethods'
 import { signInSchema } from './SignInSchema'
@@ -24,20 +24,12 @@ const SignInInput = () => {
 
     const onSubmit = async (data) => {
     await new Promise(res => setTimeout(res,500))
-    if(data.Email === "user@gmail.com" && data.Password === "userPassword123@j786"){
-        navigate("/my-account")
-    }
-    if(data.Email === "admin@gmail.com" && data.Password === "adminPassword123@j786"){
-        navigate("/admin/dashboard")
-    }
-    else{
         showToast({
       message : "Authentication is not connected yet. SignIn is currently disabled",
       type : "info",
       duration : 4000,
     })
-    }
-    console.log(data);
+    
   }
 
 
@@ -80,7 +72,7 @@ const SignInInput = () => {
                 ))}
               </ol>
              
-          <button type='submit' className={`border text-white py-3 rounded-lg transition-colors flex items-center justify-center gap-3 duration-300 text-[13px] ease-in-out hover:bg-(--accent-secondary) ${formState.isSubmitting ? "bg-gray-600":"bg-(--accent-primary)"}`} disabled={formState.isSubmitting}>{formState.isSubmitting? <><span>Signing In</span><LoadingCircle/></>: "Sign In"}</button>
+          <button type='submit' className={`border text-white py-3 rounded-lg transition-colors flex items-center justify-center gap-3 duration-300 text-[13px] ease-in-out hover:bg-(--accent-secondary) ${formState.isSubmitting ? "bg-gray-600":"bg-(--accent-primary)"}`} disabled={formState.isSubmitting}>{formState.isSubmitting? <><span>Signing In</span><LoadingCircleMini/></>: "Sign In"}</button>
 
           <div className='flex gap-2'>
             <button type='button' onClick={quickUserLogin} className={`border text-white py-3 rounded-lg transition-colors grow flex items-center justify-center gap-3 duration-300 text-[13px] ease-in-out hover:bg-blue-700 ${formState.isSubmitting ? "bg-gray-600":"bg-(--accent-secondary)"}`} disabled={formState.isSubmitting}>Quick User Login</button>

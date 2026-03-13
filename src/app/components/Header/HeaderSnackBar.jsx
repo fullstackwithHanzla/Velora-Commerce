@@ -27,7 +27,7 @@ const HeaderSnackBar = () => {
     <div className='flex gap-3 justify-center items-center'>
         <CiSearch onClick={checkSearchInputStatus} className='stroke-0 relative size-5 sm:size-6 hover:text-(--accent-secondary)'/>
         <SearchInput/>
-       <Link to="/dashboard">
+       <Link to="/sign-in">
             <LuUser className='stroke-1 size-5 sm:size-6 hover:text-(--accent-secondary)'/>
        </Link> 
         <div className="relative">

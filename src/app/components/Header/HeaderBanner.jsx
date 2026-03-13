@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const HeaderBanner = () => {
   return (
@@ -7,8 +8,11 @@ const HeaderBanner = () => {
                 <div>
                     <h5 className='text-white text-[12px] hidden md:block  sm:text-[14px]'>Get free Delivery on orders over $80</h5>
                 </div>
-                <div>
-                    <h1 className='text-white text-[12px] sm:text-[14px]'>Welcome Back @fullstackwithHanzla | Hanzla </h1>
+                <div className='flex gap-2 items-center justify-evenly'>
+                    <Link className='text-white text-[10px] sm:text-[12px]' to="/sign-up">Create An account</Link>
+                    <span className='text-white text-[12px] sm:text-[14px]'>|</span>
+                    <Link className='text-white text-[10px] sm:text-[12px]' to="/sign-in">Sign In</Link>
+
                 </div>
             </div>
         </div>

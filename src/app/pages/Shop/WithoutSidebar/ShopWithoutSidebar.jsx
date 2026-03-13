@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import NewArrivalsProducts from '../../../components/Home/NewArrivals/NewArrivalsProducts'
 import { newProductsData } from '../../../../features/settings/api'
 import PaginationButtons from './PaginationButtons'
@@ -32,22 +32,22 @@ const ShopWithoutSidebar = () => {
   const latestProduct = [...defaultProducts]
     .sort((a,b) => b.launchDate - a.launchDate)
 
-  const filterdProduct = useCallback(()=>{
-    if(filterType === "Latest Products") return latestProduct;
-    if(filterType === "Best Selling") return bestSelling;
-    else return defaultProducts;
-  })
+  const filteredProducts = useMemo(() => {
+  if (filterType === "Latest Products") return latestProduct;
+  if (filterType === "Best Selling") return bestSelling;
+  return defaultProducts;
+}, [filterType]);
 
 
   const productsPerPage = 8;
-  const totalProducts = Math.ceil(filterdProduct()?.length / productsPerPage);
+  const totalProducts = Math.ceil(filteredProducts?.length / productsPerPage);
   
 
   const start = (pages - 1) * productsPerPage
   const end = start + productsPerPage
-  const slicedProducts = filterdProduct()?.slice(start,end).length;
+  const slicedProducts = filteredProducts?.slice(start,end).length;
 
-  const getFilterProduct = useCallback(filterdProduct())
+  const getFilterProduct = filteredProducts
   
 
   return (
