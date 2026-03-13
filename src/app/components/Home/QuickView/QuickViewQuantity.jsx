@@ -16,7 +16,7 @@ const QuickViewQuantity = memo(() => {
             <div className='px-4 md:px-8 py-1 border border-gray-600/30 rounded-md'>
                 <h1 className='text-lg'>{quantity}</h1>
             </div>
-                <button onClick={()=>setQuantity((prev)=> prev - 1)} className='bg-gray-600/20 px-3 rounded-md'>
+                <button onClick={()=>setQuantity((prev)=> Math.max(prev - 1,1))} className='bg-gray-600/20 px-3 rounded-md'>
                     <FaMinus className='w-2 md:w-4'/>
                 </button>
             </div>
