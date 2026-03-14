@@ -20,7 +20,7 @@ const useCartStore = create(
     }))
 },
             
-    addItem : (product) =>{
+    addItem : (product , quantity = 1) =>{
         set((state) => {
             const existing = state.cart.find((item) => item.id === product.id)
             if(existing){
@@ -28,7 +28,9 @@ const useCartStore = create(
                     cart : state.cart.map((item) => item.id === product.id? {...item , quantity : item.quantity + 1} : item)
                 }
             }
-            return {cart : [...state.cart , {...product , quantity : 1}]}
+            return {cart : [...state.cart , {...product , quantity :  quantity
+
+            }]}
         })
     },
 
@@ -54,11 +56,14 @@ const useCartStore = create(
         set({cart : []})
     },
 
+     getTotalItems: () => get().cart.reduce((sum, i) => sum + i.quantity, 0),
+     getTotalPrice: () => get().cart.reduce((sum, i) => sum + i.price * i.quantity, 0),
+
     
     
     checkCartStatus : () => {
         set((state) => ({
-            isCartOpen : !state.isCartOpen
+            isCartOpen : !state.isCartOpen,
         }))
     }
 })

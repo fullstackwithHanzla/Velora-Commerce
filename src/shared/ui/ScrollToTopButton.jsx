@@ -37,7 +37,7 @@ export default function ScrollToTopButton() {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-20 right-10 z-50 rounded-md bg-(--accent-secondary) hover:bg-blue-600/90 text-white px-4 py-3 shadow-lg transition-all duration-300
+      className={`fixed bottom-20 right-10 z-5 rounded-md bg-(--accent-secondary) hover:bg-blue-600/90 text-white px-4 py-3 shadow-lg transition-all duration-300
       ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6 pointer-events-none"}`}
     >
       <IoIosArrowRoundUp className="size-4 stroke-1 md:size-6"/>

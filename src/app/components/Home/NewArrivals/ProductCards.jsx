@@ -6,8 +6,9 @@ import { FaRegHeart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import useCartStore from '../../../layouts/providers/useCartStore';
 import { useShallow } from 'zustand/shallow';
+import useWishListStore from '../../../layouts/providers/useWishListStore';
 const ProductCards = ({selectSlides , noColumngrid , shopDifferentPage , openQuickView , setIsQuickViewHovered , isQuickViewHovered , showToastMessage , toggleCartId , toggleWishList , isWishListHovered ,setIsWishListHovered,isWishListActive , setIsWishListActive , wishListId , cartId}) => {
-
+    
     const {cart , addItem , updateQuantity} = useCartStore(
         useShallow((state) => ({
             cart : state.cart,
@@ -15,6 +16,16 @@ const ProductCards = ({selectSlides , noColumngrid , shopDifferentPage , openQui
             updateQuantity : state.updateQuantity,
         }))
     )
+
+    const {wishList , addToWishList , removeFromWishList} = useWishListStore(
+        useShallow((state) => ({
+            wishList : state.wishList,
+            addToWishList : state.addToWishList,
+            removeFromWishList : state.removeFromWishList
+        }))
+    )
+    
+    
 
     // useEffect(()=>{
     //     console.log(cart);
@@ -46,13 +57,19 @@ const ProductCards = ({selectSlides , noColumngrid , shopDifferentPage , openQui
                                 {cartId.includes(s.id) && s.inStock ? <Link>Checkout</Link> : `${s.inStock? "Add To Cart":"Out of Stock"}`}
                             </button>
                             
-                            <button onClick={()=>{
-                                setIsWishListActive(!isWishListActive)
-                                toggleWishList(s.id);
-                                
-                                showToastMessage(!isWishListActive? "Product added in wishlist" : "Product removed from wishlist" , !isWishListActive ? "success" : "error")
+                            <button onClick={() => {
+
+                                toggleWishList(s.id)
+                                                            const isInWishlist = wishListId.includes(s.id)
+                                if (!isInWishlist) {
+                                addToWishList(s)
+                                showToastMessage("Product added in wishlist", "success")
+                                } else {
+                                removeFromWishList(s.id)
+                                showToastMessage("Product removed from wishlist", "error")
                                 }
-                            } onMouseEnter={() => setIsWishListHovered(!isWishListHovered)} onMouseLeave={()=>setIsWishListHovered(false)} className='bg-white relative p-2 rounded-md border  border-gray-400/30 hover:text-(--accent-secondary)'>
+
+                            }} onMouseEnter={() => setIsWishListHovered(!isWishListHovered)} onMouseLeave={()=>setIsWishListHovered(false)} className='bg-white relative p-2 rounded-md border  border-gray-400/30 hover:text-(--accent-secondary)'>
                                 <div className={`border border-gray-600/20 absolute ${noColumngrid?"bottom-9 text-[8px] md:text-[10px] w-20 md:w-28 -right-7 md:-right-8":"bottom-11 text-[13px] w-35 -right-8"} bg-white min-w-full transition-all duration-300 ease-in-out  px-2 py-1 rounded-md font-medium ${isWishListHovered? "opacity-100" : "opacity-0"}`}>{isWishListActive? "Added to Wishlist" : "Add to Wishlist"}</div>
                                 {wishListId.includes(s.id)? <FaHeart className={`${noColumngrid? "size-3 md:size-4 ":"size-5 stroke-1"}`}/>: <FaRegHeart className={`${noColumngrid? "size-3 md:size-4 ":"size-5 stroke-1"}`}/>}
                                 
@@ -65,7 +82,10 @@ const ProductCards = ({selectSlides , noColumngrid , shopDifferentPage , openQui
                         <span className='text-[10px] md:text-[12px]'>{s.salesPercentage && s.inStock? s.salesPercentage : null}{s.inStock? "% OFF" : "Out Of Stock"}</span>
                     </div>
                     
-                    <img src={s.thumbnail} alt={s.title} className={`${noColumngrid? "w-50 md:w-70":"w-50"}`}/>
+                    <Link to="/">
+                        <img src={s.thumbnail} alt={s.title} className={`${noColumngrid? "w-50 md:w-70":"w-50"}`}/>
+                    </Link>
+
                 </div>
                 <div className={`flex flex-col  items-start ${noColumngrid? "max-w-[50%] px-5 md:max-w-[60%] w-full":"min-w-full  md:w-70"}`}>
                     <h3 className={`${noColumngrid?"text-[10px] md:text-[12px]":"text-[12px] sm:text-[14px]"} hover:text-(--accent-secondary) font-normal `}>{s.title}</h3>

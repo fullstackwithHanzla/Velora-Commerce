@@ -6,33 +6,53 @@ import useWishListStore from '../../app/layouts/providers/useWishListStore';
 import { useShallow } from 'zustand/shallow';
 import { FaHeart, FaRegHeart } from 'react-icons/fa6';
 
+const AddToWishListButton = ({ qvProd }) => {
 
-const AddToWishListButton = ({qvProd}) => {
-  const [isWishListActive,setIsWishListActive] = useState(false)
-  const {wishListId , toggleWishList} = useWishListStore(
+  const {
+    wishListId,
+    toggleWishList,
+    addToWishList,
+    removeFromWishList
+  } = useWishListStore(
     useShallow((state) => ({
-      wishListId : state.wishListId,
-      toggleWishList : state.toggleWishList
+      wishListId: state.wishListId,
+      toggleWishList: state.toggleWishList,
+      addToWishList: state.addToWishList,
+      removeFromWishList: state.removeFromWishList
     }))
   )
-  const {showToast} = useToast()
-  function showToastMessage (message ,type ){
-        showToast({
-            message: message,
-            type : type,
-        })
-    }
+
+  const { showToast } = useToast()
+
+  const isInWishlist = wishListId.includes(qvProd.id)
+
+  function showToastMessage(message, type) {
+    showToast({
+      message,
+      type
+    })
+  }
 
   return (
-    <button onClick={()=>{
-      toggleWishList(qvProd.id)
-      setIsWishListActive(!isWishListActive)
-      showToastMessage(!isWishListActive? "Product added in wishlist" : "Product removed from wishlist" , !isWishListActive ? "success" : "error");
-      
-    }} className='flex gap-2 bg-(--accent-primary) rounded-md text-[10px] md:text-[14px] items-center justify-center px-4 py-2 text-white hover:bg-[#192344]'>
-        {wishListId.includes(qvProd.id)? <FaHeart/> : <FaRegHeart/>}
-        {wishListId.includes(qvProd.id)? "Remove From Wishlist" : "Add to Wishlist"}
-        
+    <button
+      onClick={() => {
+
+        toggleWishList(qvProd.id)
+
+        if (!isInWishlist) {
+          addToWishList(qvProd)
+          showToastMessage("Product added in wishlist", "success")
+        } else {
+          removeFromWishList(qvProd.id)
+          showToastMessage("Product removed from wishlist", "error")
+        }
+
+      }}
+
+      className="flex gap-2 bg-(--accent-primary) rounded-md text-[10px] md:text-[14px] items-center justify-center px-4 py-2 text-white hover:bg-[#192344]"
+    >
+      {isInWishlist ? <FaHeart /> : <FaRegHeart />}
+      {isInWishlist ? "Remove From Wishlist" : "Add To Wishlist"}
     </button>
   )
 }

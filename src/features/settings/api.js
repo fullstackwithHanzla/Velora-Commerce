@@ -3,7 +3,7 @@ export const newProductsData = [
   {
     id: 1001,
     slug: "apple-watch-ultra-orange-trail",
-    title: "Apple Watch Ultra 2 (49mm Titanium)",
+    title: "Apple Watch Ultra 2 - 49mm Titanium",
     category: "Watches",
     thumbnail: "/src/assets/Products/apple-watch-ultra-orange-trail.webp",
     images: [
@@ -41,7 +41,7 @@ export const newProductsData = [
   {
     id: 1002,
     slug: "everfit-home-treadmill-adjustable",
-    title: "Everfit Home Gym Electric Treadmill (Adjustable Incline)",
+    title: "Everfit Electric Treadmill - Adjustable Incline",
     category: "Sports and Health",
     thumbnail: "/src/assets/Products/everfit-treadmill-white-black.webp",
     images: [
@@ -79,7 +79,7 @@ export const newProductsData = [
   {
     id: 1003,
     slug: "ipad-mini-7-sky-blue",
-    title: "Apple iPad mini (A17 Pro, 2025)",
+    title: "Apple iPad mini - A17 Pro",
     category: "Mobile and Tablets",
     thumbnail: "/src/assets/Products/ipad-mini-sky-blue.webp",
     images: [
@@ -112,13 +112,11 @@ export const newProductsData = [
       { user: "Jamie L.", comment: "Super fast and portable – Apple Intelligence features are game-changing!", rating: 5 }
     ]
   },
-  // ... (continuing with full descriptions for the remaining products)
-
   // 4. Havit Gamepad
   {
     id: 1004,
     slug: "havit-hv-g69-gamepad",
-    title: "Havit HV-G69 USB Vibration Gamepad",
+    title: "Havit HV-G69 USB Gamepad",
     category: "Game and Videos and Televisions",
     thumbnail: "/src/assets/Products/havit-gamepad-gray.webp",
     images: [
@@ -153,7 +151,7 @@ export const newProductsData = [
   {
     id: 1005,
     slug: "rangs-43-inch-android-tv",
-    title: "Rangs 43 Inch Frameless FHD Android TV",
+    title: "Rangs 43 Inch Frameless Android TV",
     category: "Game and Videos and Televisions",
     thumbnail: "/src/assets/Products/rangs-tv-black-green-accents.webp",
     images: [
@@ -190,7 +188,7 @@ export const newProductsData = [
   {
     id: 1006,
     slug: "macbook-air-m1-8-256",
-    title: "Apple MacBook Air (M1, 2020) 8GB/256GB",
+    title: "Apple MacBook Air M1 - 8GB/256GB",
     category: "Laptop & PC",
     thumbnail: "/src/assets/Products/macbook-air-m1-space-gray.webp",
     images: [
@@ -226,7 +224,7 @@ export const newProductsData = [
   {
     id: 1007,
     slug: "imac-24-m4-2025",
-    title: "Apple iMac 24-inch (M4, 2025)",
+    title: "Apple iMac 24-inch M4",
     category: "Laptop & PC",
     thumbnail: "/src/assets/Products/imac-24-m4-silver.webp",
     images: [
@@ -263,7 +261,7 @@ export const newProductsData = [
   {
     id: 1008,
     slug: "iphone-16-pro-128",
-    title: "Apple iPhone 16 Pro (128GB)",
+    title: "Apple iPhone 16 Pro - 128GB",
     category: "Mobile and Tablets",
     thumbnail: "/src/assets/Products/iphone-16-pro-titanium-gray.webp",
     images: [
@@ -334,7 +332,7 @@ export const newProductsData = [
   {
     id: 1010,
     slug: "macbook-air-m4-16-256",
-    title: "Apple MacBook Air 13-inch (M4, 2025) 16GB/256GB",
+    title: "Apple MacBook Air 13-inch M4 - 16GB/256GB",
     category: "Laptop & PC",
     thumbnail: "/src/assets/Products/macbook-air-m4-midnight-gray.webp",
     images: [

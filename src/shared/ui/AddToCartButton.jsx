@@ -6,7 +6,7 @@ import { useShallow } from 'zustand/shallow';
 import useCartStore from '../../app/layouts/providers/useCartStore';
 import { IoBagCheckOutline } from "react-icons/io5";
 
-const AddToCartButton = memo(({qvProd}) => {
+const AddToCartButton = memo(({qvProd , quantity }) => {
   const closeQuickView = useQuickViewStore((state) => state.closeQuickView)
   const { addItem , cartId , toggleCartId} = useCartStore(
         useShallow((state) => ({
@@ -15,6 +15,7 @@ const AddToCartButton = memo(({qvProd}) => {
             toggleCartId : state.toggleCartId
         }))
     )
+    const getTotalItems = useCartStore((state) => state.getTotalItems)
   const {showToast} = useToast()
   function showToastMessage (message ,type ){
         showToast({
@@ -24,9 +25,9 @@ const AddToCartButton = memo(({qvProd}) => {
     }
     function handleAddToCart() {
         showToastMessage("Product Successfully added to cart", "success");
-        addItem(qvProd)
+        addItem(qvProd , quantity)
         closeQuickView();
-        
+        getTotalItems()
     }
   return (
     <button onClick={handleAddToCart} className={`flex gap-2 rounded-md text-[10px] md:text-[14px] items-center justify-center transition-colors duration-200 ease-in-out px-4 py-2 text-white bg-(--accent-secondary) hover:bg-blue-700`}>

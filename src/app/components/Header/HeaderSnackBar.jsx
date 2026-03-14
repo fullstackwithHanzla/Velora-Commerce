@@ -12,6 +12,7 @@ import useSearchStore from '../../layouts/providers/useSearchStore';
 import SearchInput from './SnackbarSearchInput/SearchInput';
 import { PiShoppingBagLight } from "react-icons/pi";
 import useCartStore from '../../layouts/providers/useCartStore';
+import useWishListStore from '../../layouts/providers/useWishListStore';
 
 const HeaderSnackBar = () => {
     const {isSideBarOpen , checkSideBarStatus} = useSideBarStore(
@@ -22,6 +23,8 @@ const HeaderSnackBar = () => {
     )
     const checkSearchInputStatus = useSearchStore((state) => state.checkSearchInputStatus)
     const checkCartStatus = useCartStore((state) => state.checkCartStatus)
+    const cart = useCartStore((state) => state.cart)
+    const wishList = useWishListStore((state) => state.wishList)
 
   return (
     <div className='flex gap-3 justify-center items-center'>
@@ -33,16 +36,16 @@ const HeaderSnackBar = () => {
         <div className="relative">
             <Link to="/wishlist">
             <CiHeart className='stroke-0 size-5 sm:size-6 hover:text-(--accent-secondary)'/>
-            <div className='absolute bg-red-600 flex justify-center items-center rounded-full bottom-3 left-3  size-5 sm:size-6'>
-                <span className='text-white flex justify-center items-center text-[12px]'>0</span>
+            <div className='absolute bg-red-600 flex justify-center items-center rounded-full bottom-3 left-3  size-4 sm:size-5'>
+                <span className='text-white flex justify-center items-center text-[12px]'>{wishList?.length}</span>
             </div>
         </Link>
         </div>
         <div className="relative flex">
             <button onClick={checkCartStatus}>
             <PiShoppingBagLight className='stroke-1  size-5 sm:size-6 hover:text-(--accent-secondary)'/>
-            <div className='absolute bg-red-600 flex justify-center items-center rounded-full bottom-3 left-3  size-5 sm:size-6'>
-                <span className='text-white flex justify-center items-center text-[12px]'>0</span>
+            <div className='absolute bg-red-600 flex justify-center items-center rounded-full bottom-3 left-3  size-4 sm:size-5'>
+                <span className='text-white flex justify-center items-center text-[12px]'>{cart?.length}</span>
             </div>
         </button>
         </div>
