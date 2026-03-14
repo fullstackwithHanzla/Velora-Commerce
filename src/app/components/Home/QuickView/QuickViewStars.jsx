@@ -13,7 +13,7 @@ const QuickViewStars = ({ rating }) => {
         const percentage = fill * 100;
 
         return (
-          <div key={star} className="relative w-3 h-3">
+          <div key={star} className="relative w-4 h-4">
 
             {/* gray base */}
             <FaStar className="absolute inset-0 text-gray-300 w-full h-full" />

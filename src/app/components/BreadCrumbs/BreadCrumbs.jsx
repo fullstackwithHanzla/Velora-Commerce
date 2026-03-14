@@ -24,7 +24,7 @@ const BreadCrumbs = () => {
   if (crumbs.length === 0) return null;
 
   return (
-    <div className="h-10 flex items-center w-[78%] bg-(--bg-page) pl-10">
+    <div className="h-10 flex items-center w-full px-2 md:w-[78%] bg-(--bg-page) ">
       <nav aria-label="Breadcrumb">
         <ol
           className="

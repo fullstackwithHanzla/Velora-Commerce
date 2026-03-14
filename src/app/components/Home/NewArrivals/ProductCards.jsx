@@ -34,7 +34,12 @@ const ProductCards = ({selectSlides , noColumngrid , shopDifferentPage , openQui
 
   return (
     <>
-        {selectSlides?.map((s) => (
+        {selectSlides?.map((s) => {
+                const isInCart = cartId?.includes(s.id);
+                const isAvailable = s.inStock;
+                const isInWishlist = wishListId.includes(s.id)
+            return(
+                (
             <div  className={` flex flex-col gap-3  group items-center   ${noColumngrid? "flex-row bg-white rounded-md gap-5 md:gap-20":"max-w-full md:min-w-full"}`} key={s.id}>
                 <div className={` relative    overflow-hidden   flex items-center justify-center border border-gray-600/10  ${shopDifferentPage ? "bg-white" : "bg-[#F6F7FB]"} ${noColumngrid? "min-w-[30%] p-5 md:p-10":"min-w-full justify-center h-70 md:w-70  rounded-lg"}`}>
                     <div className={`absolute flex   justify-center items-end  transition-all duration-400  ease-in-out opacity-0 -bottom-20 
@@ -46,21 +51,47 @@ const ProductCards = ({selectSlides , noColumngrid , shopDifferentPage , openQui
                                 <div className={`border border-gray-600/20  absolute  ${noColumngrid? "text-[8px] md:text-[10px] w-15 md:w-17 md:-left-4 bottom-9 -left-3 ":"text-[13px] -left-6 w-22 bottom-11"}  bg-white transition-all duration-300 ease-in-out  py-1 rounded-md font-medium ${isQuickViewHovered? "opacity-100" : "opacity-0"}`}>Quick View</div>
                                 <IoEyeOutline className={`${noColumngrid? "size-3 md:size-4 ":"size-5 stroke-1"}`}/>
                             </button>
+                            
+                            <button
+                                    onClick={() => {
 
-                            <button onClick={()=>{
-                                !cartId.includes(s.id) && s.inStock && showToastMessage("Product Successfully added to Cart" , "success");
-                                !cartId.includes(s.id) && s.inStock && toggleCartId(s.id);
-                                !cartId.includes(s.id) && s.inStock && addItem(s);
-                            }} className={` rounded-md ${noColumngrid? "px-2 text-[8px] md:px-3 md:text-[10px]":"px-4 text-[12px]"} text-white
-                                ${cartId.includes(s.id) && s.inStock? "bg-(--accent-primary) hover:bg-[#151d39]" : "bg-(--accent-secondary)  hover:bg-blue-700"}
-                            `}>
-                                {cartId.includes(s.id) && s.inStock ? <Link>Checkout</Link> : `${s.inStock? "Add To Cart":"Out of Stock"}`}
-                            </button>
+                                        
+                                        
+
+                                        if (!isInCart && isAvailable) {
+
+                                        toggleCartId(s.id)
+                                        addItem(s)
+
+                                        showToastMessage(
+                                            "Product Successfully added to Cart",
+                                            "success"
+                                        )
+
+                                        }
+
+                                    }}
+
+                                    className={`rounded-md 
+                                        ${noColumngrid ? "px-2 text-[8px] md:px-3 md:text-[10px]" : "px-4 text-[12px]"} 
+                                        text-white
+                                        ${isInCart && isAvailable 
+                                        ? "bg-(--accent-primary) hover:bg-[#151d39]" 
+                                        : "bg-(--accent-secondary) hover:bg-blue-700"}
+                                    `}
+                                    >
+
+                                    {isInCart && isAvailable
+                                        ? <Link to="/checkout">Checkout</Link>
+                                        : (isAvailable ? "Add To Cart" : "Out of Stock")
+                                    }
+
+                                 </button>
                             
                             <button onClick={() => {
 
                                 toggleWishList(s.id)
-                                                            const isInWishlist = wishListId.includes(s.id)
+                                                            
                                 if (!isInWishlist) {
                                 addToWishList(s)
                                 showToastMessage("Product added in wishlist", "success")
@@ -82,7 +113,7 @@ const ProductCards = ({selectSlides , noColumngrid , shopDifferentPage , openQui
                         <span className='text-[10px] md:text-[12px]'>{s.salesPercentage && s.inStock? s.salesPercentage : null}{s.inStock? "% OFF" : "Out Of Stock"}</span>
                     </div>
                     
-                    <Link to="/">
+                    <Link to={`/shop/${s.slug}`}>
                         <img src={s.thumbnail} alt={s.title} className={`${noColumngrid? "w-50 md:w-70":"w-50"}`}/>
                     </Link>
 
@@ -95,7 +126,9 @@ const ProductCards = ({selectSlides , noColumngrid , shopDifferentPage , openQui
                     </div>
                 </div>
             </div>
-        ))}
+        )
+            )
+        })}
     </>
   )
 }

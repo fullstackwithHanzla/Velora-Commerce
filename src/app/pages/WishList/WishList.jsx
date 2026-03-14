@@ -1,12 +1,18 @@
 import React from 'react'
 import WishListHeader from './WishListHeader'
 import WishListProducts from './WishListProducts'
+import useWishListStore from '../../layouts/providers/useWishListStore'
+import EmptyWishList from './EmptyWishList'
 
 const WishList = () => {
+  const wishList = useWishListStore((state) => state.wishList)
   return (
     <div className=' w-full xl:w-[85%] flex flex-col items-center gap-5 p-5 '>
-        <WishListHeader/>
-        <WishListProducts/>
+        {wishList.length > 0? 
+        <>
+          <WishListHeader/>
+          <WishListProducts/>
+        </> : <EmptyWishList/>}
     </div>
   )
 }
