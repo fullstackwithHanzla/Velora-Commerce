@@ -4,6 +4,7 @@ import QuickProductThumbnail from '../../components/Home/QuickView/QuickProductT
 import ProductImgType from '../../components/Home/QuickView/ProductImgType'
 
 import ProductInfoCard from './ProductInfoCard'
+import AboutProduct from './AboutProduct'
 
 const InformationCard = memo(({product }) => {
     const [defaultImgUrl,setDefaultImgUrl] = useState(null)
@@ -13,9 +14,9 @@ const InformationCard = memo(({product }) => {
             }
         },[product?.id])
   return (
-    <div className=' w-[70%] flex  gap-20'>
+    <div className=' w-[65%] flex my-10 gap-20'>
         {/* ProductImage */}
-        <div className='flex flex-col justify-between gap-3'>
+        <div className='flex flex-col  justify-between gap-3'>
             <div>
                 <QuickProductThumbnail size="lg" defaultImgUrl={defaultImgUrl} qvProd={product}/>
             </div>
@@ -24,7 +25,7 @@ const InformationCard = memo(({product }) => {
             </div>
         </div>
         {/* Product Information card*/}
-        <ProductInfoCard product={product}/>
+        <ProductInfoCard product={product} setDefaultImgUrl={setDefaultImgUrl}/>
         
     </div>
   )

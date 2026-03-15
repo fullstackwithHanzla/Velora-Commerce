@@ -2,9 +2,14 @@
 import { useParams } from 'react-router-dom'
 import { newProductsData } from '../../../features/settings/api';
 import InformationCard from './InformationCard';
+import AboutProduct from './AboutProduct';
+import AboutProductData from './AboutProductData';
+import { useState } from 'react';
 
 const ProductInSight = () => {
 const {slug} = useParams();
+    const AboutProductFilter = ["description" , "specifications" , "extra Info" , "reviews"]
+    const [filter,setFilter] = useState(AboutProductFilter[0])
 
     const product = newProductsData.find((item) => item.slug === slug)
 
@@ -19,8 +24,12 @@ const {slug} = useParams();
     
     
   return (
-    <div className='shadow-md w-full bg-white flex flex-col justify-center items-center py-20'>
+    <div className='shadow-md w-full bg-white flex flex-col justify-center items-center'>
         <InformationCard product={product}/>
+        <div className='bg-gray-600/10 w-full flex flex-col items-center justify-center'>
+            <AboutProduct setFilter={setFilter} filter={filter} AboutProductFilter={AboutProductFilter}/>
+            <AboutProductData product={product} filter={filter}/>
+        </div>
     </div>
   )
 }

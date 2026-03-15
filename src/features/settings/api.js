@@ -15,9 +15,12 @@ export const newProductsData = [
     salesPercentage: 11,
     promoCode: "ULTRAADVENTURE",
     inStock: true,
-    colors: ["Orange Trail Loop", "Olive Green Trail Loop"],
+    colorOptions: [
+      { name: "Orange Trail Loop", hex: "#F88F33" },
+      { name: "Olive Green Trail Loop", hex: "#4A7043" }
+    ],
     selectedColor: "Orange Trail Loop",
-    launchDate: 1695254400000, // September 22, 2023
+    launchDate: 1695254400000,
     initialStock: 180,
     unitsSold: 124,
     description: "The rugged Apple Watch Ultra is built for extreme adventures with a 49mm aerospace-grade titanium case, the brightest Apple Watch display ever (up to 3000 nits), up to 36 hours battery life (60 in low-power mode), dual-frequency GPS for precision tracking, depth gauge for diving up to 40m, siren for emergencies, and advanced health features like ECG, blood oxygen, temperature sensing, and sleep apnea notifications. Perfect for athletes, explorers, and endurance users.",
@@ -35,7 +38,15 @@ export const newProductsData = [
     reviewCount: 2456,
     reviews: [
       { user: "Alex T.", comment: "Incredible for hiking and diving – battery lasts forever!", rating: 5 }
-    ]
+    ],
+    extraInfo: {
+      warranty: "1 Year Apple Limited Warranty",
+      weight: "61.4 g",
+      dimensions: "49 × 44 × 14.4 mm",
+      tags: ["Rugged", "Dive Certified", "Cellular", "Adventure Watch"],
+      shipping: "Free shipping on orders over $50 | 2-4 business days",
+      highlights: ["100m water resistance", "Emergency siren", "Precision dual-frequency GPS"]
+    }
   },
   // 2. Everfit Treadmill
   {
@@ -53,9 +64,12 @@ export const newProductsData = [
     salesPercentage: 22,
     promoCode: "FITATHOME10",
     inStock: true,
-    colors: ["White Frame with Black Accents", "Black Frame"],
+    colorOptions: [
+      { name: "White Frame with Black Accents", hex: "#F5F5F5" },
+      { name: "Black Frame", hex: "#1C1C1C" }
+    ],
     selectedColor: "White Frame with Black Accents",
-    launchDate: 1685577600000, // ~June 2023
+    launchDate: 1685577600000,
     initialStock: 65,
     unitsSold: 42,
     description: "Compact foldable electric treadmill for home use with silent motor, adjustable incline levels, LED display for speed/time/distance/calories, and safety features like emergency stop clip. Ideal for walking, jogging, and light running in small spaces – supports up to 120kg user weight with cushioned deck for joint protection.",
@@ -73,7 +87,15 @@ export const newProductsData = [
     reviewCount: 812,
     reviews: [
       { user: "Sara M.", comment: "Quiet and easy to store – great for apartment workouts!", rating: 4 }
-    ]
+    ],
+    extraInfo: {
+      warranty: "6 Months Manufacturer Warranty",
+      weight: "28 kg",
+      dimensions: "Folded: 145 × 68 × 25 cm | Open: 145 × 68 × 120 cm",
+      tags: ["Foldable", "Home Gym", "Silent Motor", "Budget Fitness"],
+      shipping: "Free shipping nationwide | Assembly required",
+      highlights: ["Max user weight 120 kg", "Emergency safety key", "12 preset programs"]
+    }
   },
   // 3. iPad mini
   {
@@ -91,9 +113,12 @@ export const newProductsData = [
     salesPercentage: 9,
     promoCode: "MINIPOWER",
     inStock: false,
-    colors: ["Sky Blue", "Space Gray"],
+    colorOptions: [
+      { name: "Sky Blue", hex: "#82C8E5" },
+      { name: "Space Gray", hex: "#5F5F5F" }
+    ],
     selectedColor: "Sky Blue",
-    launchDate: 1729641600000, // October 23, 2024
+    launchDate: 1729641600000,
     initialStock: 120,
     unitsSold: 120,
     description: "Ultra-portable iPad mini with powerful A17 Pro chip for Apple Intelligence, 8.3-inch Liquid Retina display, all-day battery, support for Apple Pencil Pro, and pro features like USB-C. Perfect for reading, note-taking, sketching, and on-the-go productivity.",
@@ -110,7 +135,15 @@ export const newProductsData = [
     reviewCount: 1345,
     reviews: [
       { user: "Jamie L.", comment: "Super fast and portable – Apple Intelligence features are game-changing!", rating: 5 }
-    ]
+    ],
+    extraInfo: {
+      warranty: "1 Year Apple Limited Warranty",
+      weight: "293 g",
+      dimensions: "195.4 × 134.8 × 6.3 mm",
+      tags: ["Portable", "Apple Intelligence", "Pencil Pro Compatible", "Compact Tablet"],
+      shipping: "Free shipping | Expected restock: 7-10 days",
+      highlights: ["A17 Pro chip", "Apple Pencil Pro support", "USB-C connectivity"]
+    }
   },
   // 4. Havit Gamepad
   {
@@ -128,9 +161,12 @@ export const newProductsData = [
     salesPercentage: 24,
     promoCode: "GAMEON",
     inStock: true,
-    colors: ["Gray", "Black"],
+    colorOptions: [
+      { name: "Gray", hex: "#808080" },
+      { name: "Black", hex: "#000000" }
+    ],
     selectedColor: "Gray",
-    launchDate: 1667260800000, // ~Nov 2022
+    launchDate: 1667260800000,
     initialStock: 450,
     unitsSold: 312,
     description: "Affordable wired USB gamepad with dual vibration motors, ergonomic design, 12 action buttons, analog sticks, and plug-and-play compatibility for PC gaming. Great for retro emulators, racing, fighting, and casual games.",
@@ -145,7 +181,15 @@ export const newProductsData = [
     reviewCount: 567,
     reviews: [
       { user: "Gamer X", comment: "Solid build for the price – vibrations feel great in racing games.", rating: 4 }
-    ]
+    ],
+    extraInfo: {
+      warranty: "3 Months Seller Warranty",
+      weight: "220 g",
+      dimensions: "155 × 105 × 65 mm",
+      tags: ["Budget Gaming", "PC Compatible", "Vibration Feedback", "Plug & Play"],
+      shipping: "Free shipping on orders over $30",
+      highlights: ["Dual vibration motors", "Ergonomic design", "XInput/DirectInput support"]
+    }
   },
   // 5. Rangs 43 Inch TV
   {
@@ -163,9 +207,12 @@ export const newProductsData = [
     salesPercentage: 31,
     promoCode: "RANGSTV",
     inStock: false,
-    colors: ["Black with Green Accents", "Black Frameless"],
+    colorOptions: [
+      { name: "Black with Green Accents", hex: "#0A3D2E" },
+      { name: "Black Frameless", hex: "#000000" }
+    ],
     selectedColor: "Black with Green Accents",
-    launchDate: 1704067200000, // ~Jan 2024
+    launchDate: 1704067200000,
     initialStock: 80,
     unitsSold: 80,
     description: "Frameless 43-inch Full HD Android Smart TV with Google certification, built-in apps, voice control, double glass panel for slim design, and vibrant LED display. Enjoy streaming, gaming, and 4K upscaling on a budget-friendly big screen.",
@@ -182,7 +229,15 @@ export const newProductsData = [
     reviewCount: 890,
     reviews: [
       { user: "TV Fan", comment: "Great picture for the price – Android apps load fast.", rating: 5 }
-    ]
+    ],
+    extraInfo: {
+      warranty: "1 Year Brand Warranty",
+      weight: "7.2 kg",
+      dimensions: "965 × 560 × 70 mm (without stand)",
+      tags: ["Frameless", "Android TV", "Smart TV", "Budget 43 Inch"],
+      shipping: "Free installation in major cities | Wall mount included",
+      highlights: ["Google certified Android TV", "Chromecast built-in", "Voice remote control"]
+    }
   },
   // 6. MacBook Air M1
   {
@@ -191,17 +246,17 @@ export const newProductsData = [
     title: "Apple MacBook Air M1 - 8GB/256GB",
     category: "Laptop & PC",
     thumbnail: "/src/assets/Products/macbook-air-m1-space-gray.webp",
-    images: [
-      "/src/assets/Products/macbook-air-m1-space-gray.webp"
-    ],
+    images: ["/src/assets/Products/macbook-air-m1-space-gray.webp"],
     price: 699,
     originalPrice: 999,
     salesPercentage: 30,
     promoCode: "M1CLASSIC",
     inStock: true,
-    colors: ["Space Gray"],
+    colorOptions: [
+      { name: "Space Gray", hex: "#535150" }
+    ],
     selectedColor: "Space Gray",
-    launchDate: 1605571200000, // November 17, 2020
+    launchDate: 1605571200000,
     initialStock: 95,
     unitsSold: 78,
     description: "Iconic fanless MacBook Air with revolutionary M1 chip for blazing performance, up to 18 hours battery life, stunning 13.3-inch Retina display, and silent operation. Still a powerhouse for everyday tasks, creative work, and light editing in 2026.",
@@ -218,7 +273,15 @@ export const newProductsData = [
     reviewCount: 3200,
     reviews: [
       { user: "Dev R.", comment: "Still flies through coding and browsing – best value used Mac.", rating: 5 }
-    ]
+    ],
+    extraInfo: {
+      warranty: "1 Year Apple Limited Warranty (refurbished/renewed unit)",
+      weight: "1.29 kg",
+      dimensions: "30.41 × 21.24 × 0.41–1.61 cm",
+      tags: ["Fanless", "Long Battery", "M1 Classic", "Best Value Mac"],
+      shipping: "Free shipping | Includes charger and cable",
+      highlights: ["Up to 18 hours battery", "Silent fanless design", "Retina display with P3 color"]
+    }
   },
   // 7. iMac 24-inch M4
   {
@@ -236,9 +299,12 @@ export const newProductsData = [
     salesPercentage: 13,
     promoCode: "IMACDESK",
     inStock: true,
-    colors: ["Silver", "Gray Stand Variant"],
+    colorOptions: [
+      { name: "Silver", hex: "#E0E0E0" },
+      { name: "Gray Stand Variant", hex: "#A0A0A0" }
+    ],
     selectedColor: "Silver",
-    launchDate: 1731024000000, // November 8, 2024
+    launchDate: 1731024000000,
     initialStock: 55,
     unitsSold: 31,
     description: "All-in-one 24-inch iMac with vibrant 4.5K Retina display, powerful M4 chip for Apple Intelligence, slim design, and built-in accessories. Ideal for home office, creative pros, and family use with excellent color accuracy and performance.",
@@ -255,7 +321,15 @@ export const newProductsData = [
     reviewCount: 1789,
     reviews: [
       { user: "Creative P.", comment: "Colors pop on the 4.5K screen – perfect for photo/video editing.", rating: 5 }
-    ]
+    ],
+    extraInfo: {
+      warranty: "1 Year Apple Limited Warranty",
+      weight: "4.4 kg (with stand)",
+      dimensions: "54.7 × 11.5 × 46.1 cm (with stand)",
+      tags: ["All-in-One", "4.5K Display", "Apple Intelligence", "Creative Workstation"],
+      shipping: "Free shipping & setup assistance in select areas",
+      highlights: ["4.5K Retina display", "Six-speaker Spatial Audio", "12MP Center Stage camera"]
+    }
   },
   // 8. iPhone 16 Pro
   {
@@ -273,9 +347,12 @@ export const newProductsData = [
     salesPercentage: 9,
     promoCode: "IPHONE16PRO",
     inStock: true,
-    colors: ["Titanium Gray (#808080)", "Pink"],
+    colorOptions: [
+      { name: "Titanium Gray", hex: "#3C3C3D" },
+      { name: "Pink", hex: "#EBC28C" }
+    ],
     selectedColor: "Titanium Gray",
-    launchDate: 1726790400000, // September 20, 2024
+    launchDate: 1726790400000,
     initialStock: 140,
     unitsSold: 89,
     description: "Pro-level iPhone with A18 Pro chip, advanced camera system (48MP main + ultra-wide/telephoto), titanium frame, Action button, and Apple Intelligence features. Stunning display and all-day battery for photography, gaming, and productivity.",
@@ -291,7 +368,15 @@ export const newProductsData = [
     reviewCount: 4567,
     reviews: [
       { user: "Photo Pro", comment: "Camera system is unreal – 48MP shots look incredible.", rating: 5 }
-    ]
+    ],
+    extraInfo: {
+      warranty: "1 Year Apple Limited Warranty",
+      weight: "199 g",
+      dimensions: "149.6 × 71.5 × 8.25 mm",
+      tags: ["Pro Camera", "Titanium Build", "Apple Intelligence", "5× Telephoto"],
+      shipping: "Free shipping | Trade-in available",
+      highlights: ["48MP triple camera", "5× optical zoom", "Camera Control button"]
+    }
   },
   // 9. Portable Blender/Grinder
   {
@@ -309,9 +394,12 @@ export const newProductsData = [
     salesPercentage: 34,
     promoCode: "BLENDONGO",
     inStock: true,
-    colors: ["White", "Black"],
+    colorOptions: [
+      { name: "White", hex: "#FFFFFF" },
+      { name: "Black", hex: "#000000" }
+    ],
     selectedColor: "White",
-    launchDate: 1685577600000, // ~June 2023
+    launchDate: 1685577600000,
     initialStock: 320,
     unitsSold: 198,
     description: "Compact rechargeable portable blender/grinder for smoothies, shakes, spices, and baby food on the go. USB charging, multiple blades for blending/ grinding, and leak-proof design – perfect for travel, gym, or office.",
@@ -326,7 +414,15 @@ export const newProductsData = [
     reviewCount: 678,
     reviews: [
       { user: "Fitness G.", comment: "Makes perfect protein shakes on the go – easy to clean too.", rating: 5 }
-    ]
+    ],
+    extraInfo: {
+      warranty: "6 Months Seller Warranty",
+      weight: "650 g (with jar)",
+      dimensions: "9 × 9 × 23 cm",
+      tags: ["Portable", "USB Rechargeable", "Gym & Travel", "Smoothie Maker"],
+      shipping: "Free shipping on orders over $25",
+      highlights: ["Ice crushing blades", "BPA-free jar", "One-touch operation"]
+    }
   },
   // 10. MacBook Air M4
   {
@@ -344,9 +440,12 @@ export const newProductsData = [
     salesPercentage: 15,
     promoCode: "M4AIRDEAL",
     inStock: true,
-    colors: ["Midnight Gray", "Space Gray Variant"],
+    colorOptions: [
+      { name: "Midnight Gray", hex: "#1D252C" },
+      { name: "Space Gray Variant", hex: "#535150" }
+    ],
     selectedColor: "Midnight Gray",
-    launchDate: 1741824000000, // March 12, 2025
+    launchDate: 1741824000000,
     initialStock: 110,
     unitsSold: 67,
     description: "Latest ultra-thin MacBook Air with M4 chip for exceptional speed and efficiency, Liquid Retina display, up to 18 hours battery, and built for Apple Intelligence. Ideal for students, creators, and professionals needing portable power.",
@@ -363,6 +462,14 @@ export const newProductsData = [
     reviewCount: 2100,
     reviews: [
       { user: "Student Dev", comment: "Super light, long battery, and handles multitasking effortlessly.", rating: 5 }
-    ]
+    ],
+    extraInfo: {
+      warranty: "1 Year Apple Limited Warranty",
+      weight: "1.24 kg",
+      dimensions: "30.41 × 21.5 × 1.13 cm",
+      tags: ["M4 Chip", "Ultra Portable", "Apple Intelligence", "Student & Creator Favorite"],
+      shipping: "Free shipping | Includes MagSafe charger",
+      highlights: ["M4 performance", "Up to 18 hours battery", "MagSafe charging"]
+    }
   }
 ];

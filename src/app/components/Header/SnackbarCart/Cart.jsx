@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import EmptyCart from './EmptyCart'
 import useCartStore from '../../../layouts/providers/useCartStore'
 import { useShallow } from 'zustand/shallow'
@@ -12,15 +12,16 @@ const Cart = () => {
             removeItem : state.removeItem
         }))
     )
-    function handleDeleteButton(id){
-        removeItem(id)
+    function handleDeleteButton(id,e){
+        removeItem(id);
+        e.preventDefault()
     }
   return (
     <>
         {cart.length > 0 ? 
         <div className='  flex  h-181 flex-col py-5 gap-3 overflow-y-scroll'>
             {cart?.map((item) => (
-                <Link key={item.id}
+                <Link to={`/shop/${item.slug}`} key={item.id}
                 className='flex justify-between items-center gap-10 px-5'>
                     <div className='flex justify-start items-center gap-5'>
                         <img src={item.thumbnail} alt={item.title} className='w-25 bg-gray-600/15 p-5 rounded-2xl'/>
@@ -30,8 +31,8 @@ const Cart = () => {
                     </div>
                     
                     </div>
-                    <button onClick={()=>{
-                        handleDeleteButton(item.id)
+                    <button type='button' onClick={(e)=>{
+                        handleDeleteButton(item.id,e)
                     }} className='border transition-colors duration-300 ease-in-out p-2 rounded-lg border-gray-600/20 bg-gray-600/5 hover:bg-red-300/30 hover:border-red-600/10 hover:text-red-700'>
                         <RiDeleteBinLine className='size-5 '/>
                     </button>
@@ -43,4 +44,4 @@ const Cart = () => {
   )
 }
 
-export default Cart
+export default memo(Cart)

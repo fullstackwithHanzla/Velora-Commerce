@@ -2,14 +2,14 @@ import React, { memo, useState } from 'react'
 import { FaMinus, FaPlus } from 'react-icons/fa6'
 import useCartStore from '../../../layouts/providers/useCartStore'
 
-const QuickViewQuantity = memo(({qvProd , quantity , setQuantity}) => {
+const QuickViewQuantity = memo(({qvProd , quantity , setQuantity , showLabel = true}) => {
     
     
 
     const updateQuantity = useCartStore((state) => state.updateQuantity)
   return (
     <div className='flex flex-col items-center gap-1 p-2'>
-            <h3 className='text-gray-600 text-[12px] md:text-[14px]'>Quantity</h3>
+            {showLabel && <h3 className='text-gray-600 text-[12px] md:text-[14px]'>Quantity</h3>}
             <div className='flex gap-2'>
                 <button onClick={()=>{
                     setQuantity((prev)=> prev + 1);

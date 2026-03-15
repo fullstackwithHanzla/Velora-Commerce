@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import QuickViewStars from '../../components/Home/QuickView/QuickViewStars'
 import { FaCheck } from 'react-icons/fa6'
+import ProductColors from './ProductColors'
+import QuickViewQuantity from '../../components/Home/QuickView/QuickViewQuantity'
+import AddToCartButton from '../../../shared/ui/AddToCartButton'
+import AddToWishListButton from '../../../shared/ui/AddToWishListButton'
+import OutOfStock from '../../../shared/ui/OutOfStock'
 
-const ProductInfoCard = ({product}) => {
+const ProductInfoCard = ({product , setDefaultImgUrl}) => {
+    const [quantity,setQuantity] = useState(1)
   return (
     <div className='flex flex-col w-full gap-3'>
             <h2 className='text-xl md:text-3xl font-medium'>{product.title}</h2>
@@ -21,13 +27,20 @@ const ProductInfoCard = ({product}) => {
                     <p>{product.inStock? `%${product.salesPercentage} OFF` : "Out of Stock"}</p>
                 </div>
             </div>
-            {/* Description */}
-            <p className='text-[14px]'>{product.description}</p>
-            {/*  */}
-            <h3 className='flex gap-1 items-center text-xl'>Price : 
-                <span className='line-through font-medium text-gray-600 text-2xl'>${product.originalPrice}</span>
+           
+            {/* Price */}
+            <h3 className='flex gap-1 items-center font-medium text-xl'>Price : 
+                <span className='line-through font-medium text-gray-600 text-xl'>${product.originalPrice}</span>
                 <span className='font-medium text-2xl'>${product.price}</span>
             </h3>
+
+            <ProductColors setDefaultImgUrl={setDefaultImgUrl} product={product}/>
+            
+            <div className='flex items-center gap-2'>
+                <QuickViewQuantity qvProd={product} quantity={quantity} showLabel={false} setQuantity={setQuantity}/>
+                {product.inStock? <AddToCartButton qvProd={product} quantity={quantity}/> : <OutOfStock/>}
+                <AddToWishListButton qvProd={product}/>
+            </div>
         </div>
   )
 }
