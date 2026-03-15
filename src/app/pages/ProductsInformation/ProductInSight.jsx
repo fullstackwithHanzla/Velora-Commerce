@@ -24,7 +24,7 @@ const {slug} = useParams();
     
     
   return (
-    <div className='shadow-md w-full bg-white flex flex-col justify-center items-center'>
+    <div className='shadow-md w-full bg-white flex flex-col justify-center   items-center'>
         <InformationCard product={product}/>
         <div className='bg-gray-600/10 w-full flex flex-col items-center justify-center'>
             <AboutProduct setFilter={setFilter} filter={filter} AboutProductFilter={AboutProductFilter}/>

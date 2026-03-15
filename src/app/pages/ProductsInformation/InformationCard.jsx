@@ -14,10 +14,10 @@ const InformationCard = memo(({product }) => {
             }
         },[product?.id])
   return (
-    <div className=' w-[65%] flex my-10 gap-20'>
+    <div className='w-full px-5 2xl:w-[85%] flex-col xl:flex-row  my-10 gap-20'>
         {/* ProductImage */}
-        <div className='flex flex-col  justify-between gap-3'>
-            <div>
+        <div className='flex flex-row-reverse  xl:flex-col  justify-between gap-3'>
+            <div className='flex grow xl:grow-0'>
                 <QuickProductThumbnail size="lg" defaultImgUrl={defaultImgUrl} qvProd={product}/>
             </div>
             <div>

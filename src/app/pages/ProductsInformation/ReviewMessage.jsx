@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useToast } from '../../layouts/providers/ToastProvider';
 
-const ReviewMessage = () => {
+const ReviewMessage = ({ setselectedStars }) => {
     const [currentLengthMessage, setCurrentLengthMessage] = useState(0);
     const maxMessageLength = 250;
 
@@ -14,11 +14,11 @@ const ReviewMessage = () => {
         textRef.current.value = ""
         nameRef.current.value = ""
         emailRef.current.value = ""
-
+        setselectedStars(0)
         
     }
     return (
-        <form onSubmit={(e) => e.preventDefault()} className='flex p-5 gap-5 bg-white rounded-md flex-col'>
+        <form onSubmit={(e) => e.preventDefault()} className='flex w-full p-5 gap-5 bg-white rounded-md flex-col'>
             <div className='gap-2 flex flex-col'>
                 <p className='text-[14px] text-gray-600 '>Comment <span className='text-red-600'>*</span></p>
                 <textarea ref={textRef} required onChange={(e) => setCurrentLengthMessage(e.target.value.length)} placeholder='Your Review' className='border border-gray-600/20 p-3 h-30 text-gray-600 text-[14px] focus:outline-blue-600 rounded-md'></textarea>
@@ -29,14 +29,14 @@ const ReviewMessage = () => {
                     </p>
                 </div>
             </div>
-            <div className='flex gap-5 items-center justify-between'>
-                <div className='flex flex-col gap-2'>
+            <div className='flex flex-col sm:flex-row gap-5 grow items-center justify-between'>
+                <div className='flex flex-col w-full grow gap-2'>
                     <p className='text-[14px] text-gray-600 '>Name <span className='text-red-600'>*</span></p>
-                    <input ref={nameRef} type="text" required placeholder='Your Name' className='border border-gray-600/20 text-[14px] rounded-md py-2 px-5 grow' />
+                    <input ref={nameRef} type="text" required placeholder='Your Name' className='border focus:outline-blue-600 border-gray-600/20 text-[14px] rounded-md py-2 px-5 grow' />
                 </div>
-                <div className='flex flex-col  gap-2'>
+                <div className='flex flex-col w-full  grow gap-2'>
                     <p className='text-[14px] text-gray-600 '>Email <span className='text-red-600'>*</span></p>
-                    <input ref={emailRef} type="email" required placeholder='Your Email' className='border border-gray-600/20 text-[14px] rounded-md py-2 px-5 grow' />
+                    <input ref={emailRef} type="email" required placeholder='Your Email' className='border focus:outline-blue-600 border-gray-600/20 text-[14px] rounded-md py-2 px-5 grow' />
                 </div>
             </div>
 

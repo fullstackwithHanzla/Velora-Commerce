@@ -15,7 +15,7 @@ const QuickProductThumbnail = memo(function QuickProductThumbnail({
 
   return (
     <div
-      className={`bg-gray-400/30 flex grow items-center justify-center p-5 rounded-lg border border-gray-600/30 ${sizeClasses}`}
+      className={`bg-gray-400/30  flex grow items-center justify-center p-5 rounded-lg border border-gray-600/30 ${sizeClasses}`}
     >
       <img
         src={defaultImgUrl?.url}

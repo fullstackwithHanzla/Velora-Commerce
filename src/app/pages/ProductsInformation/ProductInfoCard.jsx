@@ -10,13 +10,13 @@ import OutOfStock from '../../../shared/ui/OutOfStock'
 const ProductInfoCard = ({product , setDefaultImgUrl}) => {
     const [quantity,setQuantity] = useState(1)
   return (
-    <div className='flex flex-col w-full gap-3'>
+    <div className='flex flex-col my-15 xl:my-0 w-full gap-3'>
             <h2 className='text-xl md:text-3xl font-medium'>{product.title}</h2>
-            <div className='flex items-center justify-between'>
-                <div className='flex gap-2'>
+          <div className='flex flex-col sm:flex-row items-start gap-5 sm:items-center w-full lg:w-[50%] justify-between'>
+                <div className='flex flex-wrap gap-2'>
                     <QuickViewStars rating={product.rating}/>
                     <p className='text-[12px]'>({product.reviewCount} Customer Reviews)</p>
-                    <div className='flex items-center gap-1'>
+                    <div className='flex items-center  gap-1'>
                         <div className={`h-4 w-4  rounded-full  border flex items-center justify-center ${product.inStock? "border-green-600": "border-red-700"}`}>
                                 <FaCheck className={`size-2 ${product.inStock? "text-green-500/80" : "text-red-700"}`}/>
                                     </div>
@@ -36,7 +36,7 @@ const ProductInfoCard = ({product , setDefaultImgUrl}) => {
 
             <ProductColors setDefaultImgUrl={setDefaultImgUrl} product={product}/>
             
-            <div className='flex items-center gap-2'>
+            <div className='flex flex-col-reverse sm:flex-row items-start sm:items-center gap-2'>
                 <QuickViewQuantity qvProd={product} quantity={quantity} showLabel={false} setQuantity={setQuantity}/>
                 {product.inStock? <AddToCartButton qvProd={product} quantity={quantity}/> : <OutOfStock/>}
                 <AddToWishListButton qvProd={product}/>
