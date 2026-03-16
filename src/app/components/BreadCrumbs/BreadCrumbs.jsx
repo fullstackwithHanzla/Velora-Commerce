@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { RiHome9Line } from "react-icons/ri";
 
 const BreadCrumbs = () => {
 
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }, [location.pathname]);
   let currentLocation = "";
 
   const crumbs = location.pathname

@@ -10,9 +10,9 @@ import OutOfStock from '../../../shared/ui/OutOfStock'
 const ProductInfoCard = ({product , setDefaultImgUrl}) => {
     const [quantity,setQuantity] = useState(1)
   return (
-    <div className='flex flex-col my-15 xl:my-0 w-full gap-3'>
+    <div className='flex flex-col my-15  w-full gap-3'>
             <h2 className='text-xl md:text-3xl font-medium'>{product.title}</h2>
-          <div className='flex flex-col sm:flex-row items-start gap-5 sm:items-center w-full lg:w-[50%] justify-between'>
+          <div className='flex flex-col sm:flex-row items-start gap-5 sm:items-center w-full lg:w-[30%]  justify-between'>
                 <div className='flex flex-wrap gap-2'>
                     <QuickViewStars rating={product.rating}/>
                     <p className='text-[12px]'>({product.reviewCount} Customer Reviews)</p>

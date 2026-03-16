@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
 import { LuUserRound } from "react-icons/lu";
 import QuickViewStars from '../../components/Home/QuickView/QuickViewStars';
 import AddReview from './AddReview';
@@ -6,15 +6,16 @@ import AddReview from './AddReview';
 
 const AboutProductData = memo(({product , filter}) => {
     const filteredSpace = filter.replace(" ","")
+    
     const value = product[filteredSpace];
     
   return (
-    <div className='w-full px-5 flex flex-col lg:flex-row justify-center gap-10 items-center 2xl:w-[75%] my-20'>
+    <div className='w-full px-5 flex flex-col lg:flex-row justify-center gap-10 items-center lg:items-start 2xl:w-[75%] my-20'>
         <div className='w-full xl:w-[60%] flex flex-col gap-5 '>
         <h3 className='text-[14px] md:text-xl capitalize '>
           {filter === "reviews"? `${product.reviews?.length} Review for this product` : `${filter} :`}
         </h3>
-            <p className='text-[10px] md:text-[14px]'>
+            <span className='text-[10px] md:text-[14px]'>
                 {value && typeof value === "object" && !Array.isArray(value)?
                  Object.entries(value).map(([key , value]) => (
                     <li key={key}>{value}</li>
@@ -34,7 +35,7 @@ const AboutProductData = memo(({product , filter}) => {
                     </div>
                   )) : value
             }
-            </p>
+            </span>
         </div>
       {filter === "reviews" && <AddReview />}
     </div>

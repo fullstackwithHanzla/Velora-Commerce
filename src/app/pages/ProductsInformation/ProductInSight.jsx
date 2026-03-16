@@ -5,6 +5,7 @@ import InformationCard from './InformationCard';
 import AboutProduct from './AboutProduct';
 import AboutProductData from './AboutProductData';
 import { useState } from 'react';
+import RelatedItems from './RelatedItems/RelatedItems';
 
 const ProductInSight = () => {
 const {slug} = useParams();
@@ -24,11 +25,15 @@ const {slug} = useParams();
     
     
   return (
-    <div className='shadow-md w-full bg-white flex flex-col justify-center   items-center'>
+    <div className=' w-full bg-white flex flex-col justify-center py-10 gap-5 items-center'>
         <InformationCard product={product}/>
         <div className='bg-gray-600/10 w-full flex flex-col items-center justify-center'>
             <AboutProduct setFilter={setFilter} filter={filter} AboutProductFilter={AboutProductFilter}/>
             <AboutProductData product={product} filter={filter}/>
+        </div>
+
+          <div className=' w-full bg-white flex flex-col justify-start  gap-5 items-center'>
+            <RelatedItems product={product}/>
         </div>
     </div>
   )

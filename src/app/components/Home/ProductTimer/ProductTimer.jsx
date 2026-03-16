@@ -17,7 +17,7 @@ const ProductTimer = () => {
                 <h4 className='text-lg md:text-2xl font-medium text-center md:text-start'>Enhance Your <br /> Working Experience</h4>
                 <p className='text-gray-600 text-[10px] md:text-[12px]'>{productForCountDown.title}</p>
                 <CountDown targetDate={targetDate}/>
-                <Link to="/shop" className='w-[50%] flex items-center justify-center bg-(--accent-secondary) rounded-md text-[10px] md:text-[14px] px-4 py-2 text-white  hover:bg-blue-700'>Check it Out</Link>
+                <Link to={`shop/${productForCountDown.slug}`} className='w-[50%] flex items-center justify-center bg-(--accent-secondary) rounded-md text-[10px] md:text-[14px] px-4 py-2 text-white  hover:bg-blue-700'>Check it Out</Link>
             </div>
             <div className='flex  items-center justify-center w-60 md:w-100'>
                 <img src={productForCountDown.thumbnail} alt={productForCountDown.id} className='grow'/>

@@ -12,7 +12,7 @@ const HomeBanner = () => {
   return (
     <div className=' flex flex-col 2xl:flex-col lg:flex-row gap-5  justify-around '>
       {bannerArray.map((BannerProd) => (
-        <Link to="" key={BannerProd.id} className='flex flex-col-reverse md:flex-row justify-between items-center rounded-lg bg-white grow p-5 '>
+        <Link to={`shop/${BannerProd.slug}`} key={BannerProd.id} className='flex flex-col-reverse md:flex-row justify-between items-center rounded-lg bg-white grow p-5 '>
           <div className='flex flex-col  gap-10 w-[60%]  lg:w-[40%] justify-around text-center md:text-start'>
               <div className='flex flex-col gap-4 '>
                 <h1 className='text-md md:text-xl font-medium hover:text-(--accent-secondary) '>{BannerProd.title}</h1>

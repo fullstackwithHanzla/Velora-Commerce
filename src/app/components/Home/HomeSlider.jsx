@@ -45,7 +45,7 @@ const HomeSlider = () => {
                 </div>
 
                 <div className='py-2 flex justify-center items-center md:justify-start'>
-                  <Link className=' py-2 px-6 bg-(--accent-primary) text-white rounded-md'>
+                  <Link to={`shop/${prod.slug}`} className=' py-2 px-6 bg-(--accent-primary) text-white rounded-md'>
                     Shop Now
                   </Link>
                 </div>

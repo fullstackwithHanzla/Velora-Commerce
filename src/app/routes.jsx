@@ -13,8 +13,10 @@ const TermsAndConditions = lazy(() => import("./layouts/TermsAndConditions"));
 const SignUpLayout = lazy(() => import("./layouts/SignUpLayout"));
 const SignInLayout = lazy(()=> import("./layouts/SignInLayout"))
 const ShopWithoutSidebar = lazy(()=> import("./pages/Shop/WithoutSidebar/ShopWithoutSidebar"))
+const Popular = lazy(()=> import("./pages/Shop/WithoutSidebar/Popular/Popular"))
 const WishList = lazy(()=> import("./pages/WishList/WishList"))
 const ProductInSight = lazy(() => import("./pages/ProductsInformation/ProductInSight"))
+const ShopByCategory = lazy(() => import("./pages/Shop/ShopByCategory/ShopByCategory"))
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,7 +32,9 @@ const router = createBrowserRouter([
       {path : "sign-in", element : <SignInLayout/>},
       {path : "contact", element : <Contact/>},
       {path : "wishlist", element : <WishList/>},
+      { path: "popular", element: <Popular />},
       {path : "shop/:slug", element : <ProductInSight/>},
+      { path: "category/:slug", element: <ShopByCategory />},
       {path : "shop-without-sidebar", element : <ShopWithoutSidebar/>},
       { path: "*", element: <Error /> }
     ]

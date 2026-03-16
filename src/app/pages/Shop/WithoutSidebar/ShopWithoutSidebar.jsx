@@ -4,10 +4,15 @@ import { newProductsData } from '../../../../features/settings/api'
 import PaginationButtons from './PaginationButtons'
 import ShopFilter from './ShopFilter'
 
-const ShopWithoutSidebar = () => {
+
+const ShopWithoutSidebar = ({ Popular = false, products = [], BrowseByCategory = false}) => {
   const [pages,setPages] = useState(1);
 
-  const [filterType , setFilterType] = useState("")
+  const [filterType, setFilterType] = useState(() => {
+    return Popular ? "Best Selling" : "";
+  })
+  
+
   const [noColumngrid , setNoColumnGrid] = useState(false)
 
   const handleFilterType = useCallback((data) => {
@@ -23,18 +28,21 @@ const ShopWithoutSidebar = () => {
 
   const defaultProducts = newProductsData;
 
-  const bestSelling = [...defaultProducts]
-    .sort((a , b) => 
+  const bestSelling = BrowseByCategory ? [...products].sort((a, b) =>
     (b.unitsSold / b.initialStock) - (a.unitsSold / a.initialStock)
-    )
+  ) : [...defaultProducts].sort((a, b) =>
+    (b.unitsSold / b.initialStock) - (a.unitsSold / a.initialStock)
+  )
+  
 
   
-  const latestProduct = [...defaultProducts]
-    .sort((a,b) => b.launchDate - a.launchDate)
+  const latestProduct = BrowseByCategory ? [...products].sort((a, b) => b.launchDate - a.launchDate) : [...defaultProducts].sort((a, b) => b.launchDate - a.launchDate)
+    
 
   const filteredProducts = useMemo(() => {
   if (filterType === "Latest Products") return latestProduct;
   if (filterType === "Best Selling") return bestSelling;
+    if (BrowseByCategory === true) return products
   return defaultProducts;
 }, [filterType]);
 
@@ -48,12 +56,14 @@ const ShopWithoutSidebar = () => {
   const slicedProducts = filteredProducts?.slice(start,end).length;
 
   const getFilterProduct = filteredProducts
+
+  const PopularFilter = Popular ? true : false
   
 
   return (
     <div className='flex flex-col items-center my-10 w-full'>
         <div className='w-full md:w-[90%] '>
-            <ShopFilter productsLength={newProductsData.length} slicedProducts={slicedProducts} handleFilterType={handleFilterType} handleGridType={handleGridType}  noColumngrid={noColumngrid}/>
+        <ShopFilter Popular={PopularFilter} productsLength={newProductsData.length} slicedProducts={slicedProducts} handleFilterType={handleFilterType} handleGridType={handleGridType}  noColumngrid={noColumngrid}/>
             <NewArrivalsProducts products={getFilterProduct} shopDifferentPage={true} start={start} end={end} noColumngrid={noColumngrid}/>
             <PaginationButtons totalProducts={totalProducts} pages={pages} setPages={setPages} />
         </div>

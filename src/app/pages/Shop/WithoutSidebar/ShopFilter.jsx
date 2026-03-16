@@ -3,14 +3,19 @@ import { CiGrid41 } from "react-icons/ci";
 import { CiGrid2H } from "react-icons/ci";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-const ShopFilter = memo(({productsLength , slicedProducts , handleFilterType , handleGridType ,noColumngrid}) => {
+
+const ShopFilter = memo(({Popular = false, productsLength , slicedProducts , handleFilterType , handleGridType ,noColumngrid}) => {
     const [gridIndex,setGridIndex] = useState(0)
     const gridIcons = [
         {icon : CiGrid41},
         {icon : CiGrid2H}
     ]
 
-    const [defaultSortingProducts , setDefaultSortingProducts] = useState("Default Sorting")
+    
+
+    const [defaultSortingProducts , setDefaultSortingProducts] = useState(() => {
+        return Popular ? "Best Selling" : "Default Sorting"
+    })
     const [isFilterDropDownActive,setIsFilterDropDownActive] = useState(false)
 
     const sortingDropdown = [
