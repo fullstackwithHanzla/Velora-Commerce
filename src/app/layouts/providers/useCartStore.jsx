@@ -50,7 +50,7 @@ const useCartStore = create(
             checkCartStatus: () => set((state) => ({ isCartOpen: !state.isCartOpen })),
         }),
         {
-            name: 'cart-storage', // key in localStorage
+            name: 'cart-storage', 
         }
     )
 )

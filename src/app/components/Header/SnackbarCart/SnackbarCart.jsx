@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useCartStore from '../../../layouts/providers/useCartStore';
 import { useShallow } from 'zustand/shallow';
 import { Link } from 'react-router-dom';
@@ -13,6 +13,13 @@ const SnackbarCart = () => {
           checkCartStatus: state.checkCartStatus,
         }))
       );
+
+      const cart = useCartStore((state) => state.cart)
+
+      useEffect(() => {
+        getTotalPrice()
+      }, [cart])
+      
       
 
       const getTotalPrice = useCartStore((state) => state.getTotalPrice)

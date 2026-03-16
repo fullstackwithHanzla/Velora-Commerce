@@ -25,12 +25,12 @@ const ShopFilter = memo(({Popular = false, productsLength , slicedProducts , han
     ]
     
   return (
-    <div className={`flex justify-between  lg:mx-0 items-center shadow-md bg-white rounded-md p-3 ${noColumngrid?"mx-2":"mx-10"}`}>
+    <div className={`flex justify-between  lg:mx-0 items-center shadow-md bg-white rounded-md p-3 ${noColumngrid?"mx-2":"mx-5"}`}>
         <div className='flex items-center gap-3'>
             <div onClick={()=>setIsFilterDropDownActive(!isFilterDropDownActive)} className='border relative border-gray-600/30 text-gray-600 rounded-md px-4 py-2 flex items-center gap-3 md:gap-5 justify-between'>
                 <span className='text-[10px] md:text-[12px]'>{defaultSortingProducts}</span>
                 <MdKeyboardArrowDown className={`size-3 md:size-4 transition-all duration-300 ease-in-out ${isFilterDropDownActive? "rotate-180":""}`}/>
-                <div className={`absolute z-50 w-full left-0 p-2 flex flex-col gap-1 bg-white shadow-md top-10 border border-gray-600/30 rounded-md transition-opacity duration-300 ease-in-out ${isFilterDropDownActive? "opacity-100" : "opacity-0"}`}>
+                  <div className={`absolute w-full left-0 p-2 flex flex-col gap-1 -z-10 bg-white shadow-md top-10 border border-gray-600/30 rounded-md  transition-opacity duration-300 ease-in-out ${isFilterDropDownActive ? "opacity-100  z-50" : "opacity-0 "}`}>
                     {sortingDropdown.map((item , index) => (
                         <div onClick={()=> {
                             setDefaultSortingProducts(item);
