@@ -1,4 +1,5 @@
-import React, { Activity, memo } from 'react'
+import React, { Activity, memo, useEffect } from 'react'
+import useProductFilterization from '../../layouts/providers/useProductFilterization';
 
 const CategoryDropDown = memo(({ categoryDropDown }) => {
     const categoryDropDownArray = [
@@ -9,11 +10,18 @@ const CategoryDropDown = memo(({ categoryDropDown }) => {
         "Home Appliances",
         "Game and Videos and Televisions"
     ];
+
+    const setCategoryFilter = useProductFilterization((state) => state.setCategoryFilter)
+    const categoryFilter = useProductFilterization((state) => state.categoryFilter)
+
+    
+    
+
     return (
         <Activity mode={categoryDropDown ? "visible":"hidden"} >
             <div className='p-3.5 flex flex-col gap-3'>
                 {categoryDropDownArray.map((cate,index) => (
-                    <span className='cursor-pointer hover:text-(--accent-secondary)' key={index}>{cate}</span>
+                    <span onClick={() => setCategoryFilter(cate)} className={`cursor-pointer hover:text-(--accent-secondary) ${categoryFilter.includes(cate)? "text-(--accent-secondary)":""}`} key={index}>{cate}</span>
                 ))}
             </div>
         </Activity>

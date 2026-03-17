@@ -1,28 +1,47 @@
-import React, { Activity, memo } from "react";
-import { newProductsData } from "../../../features/settings/api";
+// FilterColors.jsx
+import React, { memo } from "react"
+import { newProductsData } from "../../../features/settings/api"
+import useProductFilterization from "../../layouts/providers/useProductFilterization"
+import { FaCheck } from "react-icons/fa6"
 
 const FilterColors = memo(({ colorsDropDown }) => {
-    const products = newProductsData;
+    const colorFilter = useProductFilterization((state) => state.colorFilter)
+    const setcolorFilter = useProductFilterization((state) => state.setcolorFilter)
 
     const uniqueColors = React.useMemo(() => {
-        return [
-            ...new Set(
-                products.flatMap(p =>
-                    p.colorOptions.map(c => c)
-                )
-            )
-        ];
-    }, [products]);
+        const seen = new Set()
+        const result = []
+        newProductsData.forEach((product) => {
+            product.colorOptions.forEach((colorOption) => {
+                if (!seen.has(colorOption.name)) {
+                    seen.add(colorOption.name)
+                    result.push(colorOption)
+                }
+            })
+        })
+        return result
+    }, [])
 
     return (
-        <Activity mode={colorsDropDown ? "visible" : "hidden"}>
+        <div style={{ display: colorsDropDown ? 'block' : 'none' }}>
             <div className="p-3.5 flex flex-wrap gap-3">
                 {uniqueColors.map((color) => (
-                    <span style={{backgroundColor : color.hex}} key={color} className={`border border-gray-600/20 rounded-full h-6 w-6 `}></span>
+                    <span
+                        key={color.name}
+                        onClick={() => setcolorFilter(color.name)}
+                        style={{ backgroundColor: color.hex }}
+                        className={`border flex items-center justify-center rounded-full h-6 w-6 cursor-pointer transition-all
+              ${colorFilter.includes(color.name)
+                                ? "border-amber-900 scale-110"
+                                : "border-gray-600/20 hover:border-gray-400"
+                            }`}
+                    >
+                        {colorFilter.includes(color.name) ? <FaCheck className="text-white/90 size-3" /> : null}
+                    </span>
                 ))}
             </div>
-        </Activity>
-    );
-});
+        </div>
+    )
+})
 
-export default FilterColors;
+export default FilterColors

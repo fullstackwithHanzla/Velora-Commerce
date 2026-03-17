@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react'
+// useDebounceInput.js
+import { useEffect, useState } from 'react'
 
-const useDebounceInput = (value , delay = 400) => {
-  const [debounce,setDebounce] = useState(value)
+const useDebounceInput = (value, delay = 400) => {
+  const [debounced, setDebounced] = useState(value)
 
-  useEffect(()=>{
-    const timer = setTimeout(()=>{
-        setDebounce(value)
-    },delay)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebounced(value)
+    }, delay)
 
-    return()=>{
-      clearInterval(timer)
+    return () => {
+      clearTimeout(timer)
     }
-  },[value,delay])
+  }, [value, delay])
 
-  return debounce;
+  return debounced
 }
 
 export default useDebounceInput
