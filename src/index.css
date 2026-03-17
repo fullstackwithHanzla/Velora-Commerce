@@ -47,4 +47,6 @@ body{
 
     /* BORDERS */
     --border-default: #F2F4F7;    /* cards, inputs, separators */
+
+    --breakpoint-xs : 450px
 }

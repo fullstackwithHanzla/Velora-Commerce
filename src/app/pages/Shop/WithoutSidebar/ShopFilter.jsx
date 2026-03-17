@@ -1,7 +1,11 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useContext, useEffect, useState } from 'react'
 import { CiGrid41 } from "react-icons/ci";
 import { CiGrid2H } from "react-icons/ci";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { shopFilterContext } from '../../Shop';
+import { TbFilterHeart } from "react-icons/tb";
+import useShopFilter from '../../../layouts/providers/useShopFilter';
+import { useShallow } from 'zustand/shallow';
 
 
 const ShopFilter = memo(({Popular = false, productsLength , slicedProducts , handleFilterType , handleGridType ,noColumngrid}) => {
@@ -10,6 +14,15 @@ const ShopFilter = memo(({Popular = false, productsLength , slicedProducts , han
         {icon : CiGrid41},
         {icon : CiGrid2H}
     ]
+
+    const { isFilterOpen, setIsFilterOpen } = useShopFilter(
+        useShallow((state) => ({
+            isFilterOpen: state.isFilterOpen,
+            setIsFilterOpen : state.setIsFilterOpen,
+        }))
+    )
+    
+    
 
     
 
@@ -23,10 +36,16 @@ const ShopFilter = memo(({Popular = false, productsLength , slicedProducts , han
         "Latest Products",
         "Best Selling"
     ]
+
+    const ShopWithSidebar = useContext(shopFilterContext)
     
   return (
     <div className={`flex justify-between  lg:mx-0 items-center shadow-md bg-white rounded-md p-3 ${noColumngrid?"mx-2":"mx-5"}`}>
         <div className='flex items-center gap-3'>
+              {ShopWithSidebar && <button onClick={setIsFilterOpen} className='border flex items-center gap-3 justify-center p-2 rounded-md border-gray-600/30 text-black hover:bg-(--accent-secondary) hover:text-white'>
+                  <TbFilterHeart className='size-5 ' />
+                  <span className='text-[13px] hover:text-white'>Filter</span>
+                </button>}
             <div onClick={()=>setIsFilterDropDownActive(!isFilterDropDownActive)} className='border relative border-gray-600/30 text-gray-600 rounded-md px-4 py-2 flex items-center gap-3 md:gap-5 justify-between'>
                 <span className='text-[10px] md:text-[12px]'>{defaultSortingProducts}</span>
                 <MdKeyboardArrowDown className={`size-3 md:size-4 transition-all duration-300 ease-in-out ${isFilterDropDownActive? "rotate-180":""}`}/>
