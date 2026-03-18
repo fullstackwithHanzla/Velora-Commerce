@@ -1,9 +1,9 @@
 import React from 'react'
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from 'react-router-dom';
-const EmptyCart = () => {
+const EmptyCart = ({isCartPageOpen = false}) => {
   return (
-    <div className=' py-10 flex flex-col justify-center gap-8 items-center'>
+    <div className={` py-10  ${isCartPageOpen ? "w-[35%]" :"w-full"} flex flex-col justify-center gap-8 items-center`}>
         <div className=' h-28 w-28 flex  justify-center items-center bg-gray-500/10 rounded-full'>
             <AiOutlineShoppingCart className='size-10 fill-gray-600/70'/>
         </div>
