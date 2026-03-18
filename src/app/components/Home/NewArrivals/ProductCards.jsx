@@ -25,7 +25,7 @@ const ProductCards = ({ selectSlides, noColumngrid, shopDifferentPage, openQuick
 
     return (
         <>
-            {selectSlides?.map((s) => {
+            {selectSlides.length === 0 ? <p className="my-5 flex items-center justify-center">No product Found</p> : selectSlides?.map((s) => {
                 const inCart = isInCart(s.id);
                 const isAvailable = s.inStock;
                 const isInWishlist = wishListId?.includes(s.id)

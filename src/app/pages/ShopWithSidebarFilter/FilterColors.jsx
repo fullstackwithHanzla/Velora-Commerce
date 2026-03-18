@@ -11,8 +11,8 @@ const FilterColors = memo(({ colorsDropDown }) => {
     const uniqueColors = React.useMemo(() => {
         const seen = new Set()
         const result = []
-        newProductsData.forEach((product) => {
-            product.colorOptions.forEach((colorOption) => {
+        newProductsData.map((product) => {
+            product.colorOptions.map((colorOption) => {
                 if (!seen.has(colorOption.name)) {
                     seen.add(colorOption.name)
                     result.push(colorOption)
@@ -20,7 +20,7 @@ const FilterColors = memo(({ colorsDropDown }) => {
             })
         })
         return result
-    }, [])
+    }, [newProductsData])
 
     return (
         <div style={{ display: colorsDropDown ? 'block' : 'none' }}>

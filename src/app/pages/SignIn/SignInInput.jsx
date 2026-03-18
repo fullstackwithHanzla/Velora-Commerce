@@ -79,6 +79,8 @@ const SignInInput = () => {
               <button type='button' onClick={quickAdminLogin} className={`border text-white py-3 rounded-lg transition-colors grow flex items-center justify-center gap-3 duration-300 text-[13px] ease-in-out hover:bg-(--accent-secondary) ${formState.isSubmitting ? "bg-gray-600":"bg-(--accent-primary)"}`} disabled={formState.isSubmitting}>Quick Admin Login</button>
           </div>
 
+          <Link to="/forgot-password" className='flex p-2 items-center justify-center text-gray-600 text-[14px] hover:text-(--accent-secondary)'>Forgot Your Password?</Link>
+
             <div className='flex items-center gap-3 w-full my-5'>
                 <div className='flex-1 h-px bg-gray-600/20 font-medium'></div>
                     <span className='text-sm text-gray-600 font-light'>Or</span>

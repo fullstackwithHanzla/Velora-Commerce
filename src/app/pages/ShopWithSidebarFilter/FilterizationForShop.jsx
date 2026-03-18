@@ -24,7 +24,7 @@ const FilterizationForShop = () => {
 
   const maxPrice = useMemo(() =>
     Math.max(...newProductsData.map((p) => p.price))
-    , [])
+    , [newProductsData])
 
   const [value, setValue] = useState([0, maxPrice])
 
