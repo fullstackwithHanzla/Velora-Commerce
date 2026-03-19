@@ -19,6 +19,7 @@ const ProductInSight = lazy(() => import("./pages/ProductsInformation/ProductInS
 const ShopByCategory = lazy(() => import("./pages/Shop/ShopByCategory/ShopByCategory"))
 const ForgotPasswordComponent = lazy(() => import("./pages/ForgetPasswordFiles/Forgotpassword"))
 const ProductsCart = lazy(() => import("../features/Cart/ProductsCart"))
+const Checkout = lazy(() => import("../features/Checkout/Checkout"))
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,6 +41,7 @@ const router = createBrowserRouter([
       {path : "shop-without-sidebar", element : <ShopWithoutSidebar/>},
       { path: "forgot-password", element: <ForgotPasswordComponent />},
       { path: "cart", element: <ProductsCart />},
+      { path: "checkout", element: <Checkout />},
       { path: "*", element: <Error /> }
     ]
   }

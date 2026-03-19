@@ -8,6 +8,7 @@ import { useShallow } from 'zustand/shallow'
 
 const Products = () => {
     const cart = useCartStore((state) => state.cart)
+    const removeItem = useCartStore((state) => state.removeItem)
 
     const {quantity,setQuantity} = useQuickViewStore(
         useShallow((state) => ({
@@ -15,6 +16,10 @@ const Products = () => {
             setQuantity: state.setQuantity,
         }))
     )
+
+    function handleDeleteButton(id){
+        removeItem(id)
+    }
     
 
   return (
