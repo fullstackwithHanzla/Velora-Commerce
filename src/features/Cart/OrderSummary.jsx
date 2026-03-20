@@ -1,10 +1,26 @@
 import React, { memo, useEffect } from 'react'
 import useCartStore from '../../app/layouts/providers/useCartStore'
 import { Link } from 'react-router-dom'
+import useShippingMethods from '../../app/layouts/providers/useShippingMethods'
+import { useShallow } from 'zustand/react/shallow'
 
 const OrderSummary = memo(({ isShippingFee, isCheckout = true }) => {
     const cart = useCartStore((state) => state.cart)
     const getTotalPrice = useCartStore((state) => state.getTotalPrice)
+
+    const { selectedShippingMethod, setselectedShippingMethod } = useShippingMethods(
+        useShallow((state) => ({
+            selectedShippingMethod: state.selectedShippingMethod,
+            setselectedShippingMethod: state.setselectedShippingMethod
+        }))
+    )
+
+    const getPrice = () => {
+        const totalDefault = getTotalPrice();
+        if(selectedShippingMethod === "freeShipping") return totalDefault;
+        if(selectedShippingMethod === "FedEx") return totalDefault + 10.99;
+        if(selectedShippingMethod === "DHL") return totalDefault + 12.75;
+    }
 
     useEffect(() => {
         getTotalPrice()
@@ -36,7 +52,7 @@ const OrderSummary = memo(({ isShippingFee, isCheckout = true }) => {
 
                 <div className='flex items-center p-3 justify-between'>
                     <p className='font-medium'>Total</p>
-                    <p className='font-medium'>${getTotalPrice().toLocaleString()}</p>
+                    <p className='font-medium'>${getPrice().toLocaleString()}</p>
                 </div>
                 {isCheckout && <Link to='/checkout' className='rounded-md flex items-center justify-center py-2.5 grow bg-(--accent-secondary) hover:bg-blue-600 text-white'>Process to Checkout</Link>}
             </div>
