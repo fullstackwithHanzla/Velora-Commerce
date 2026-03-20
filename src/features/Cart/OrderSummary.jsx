@@ -2,7 +2,7 @@ import React, { memo, useEffect } from 'react'
 import useCartStore from '../../app/layouts/providers/useCartStore'
 import { Link } from 'react-router-dom'
 
-const OrderSummary = memo(({ isShippingFee }) => {
+const OrderSummary = memo(({ isShippingFee, isCheckout = true }) => {
     const cart = useCartStore((state) => state.cart)
     const getTotalPrice = useCartStore((state) => state.getTotalPrice)
 
@@ -38,7 +38,7 @@ const OrderSummary = memo(({ isShippingFee }) => {
                     <p className='font-medium'>Total</p>
                     <p className='font-medium'>${getTotalPrice().toLocaleString()}</p>
                 </div>
-                <Link to='/checkout' className='rounded-md flex items-center justify-center py-2.5 grow bg-(--accent-secondary) hover:bg-blue-600 text-white'>Process to Checkout</Link>
+                {isCheckout && <Link to='/checkout' className='rounded-md flex items-center justify-center py-2.5 grow bg-(--accent-secondary) hover:bg-blue-600 text-white'>Process to Checkout</Link>}
             </div>
 
         </div>
