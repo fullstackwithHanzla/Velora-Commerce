@@ -6,6 +6,7 @@ import CouponCode from '../Cart/CouponCode'
 import ShippingMethod from './ShippingMethod'
 import PaymentMethod from './PaymentMethod'
 
+
 const ProductCheckout = () => {
   return (
     <div className='w-full flex flex-col justify-center lg:flex-row gap-5 items-start '>
