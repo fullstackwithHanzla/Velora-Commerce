@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Stripe from '../../assets/PaymentMethodCheckout/Stripe.png'
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import usePaymentMethods from '../../app/layouts/providers/usePaymentMethods';
 import { useShallow } from 'zustand/react/shallow';
@@ -24,7 +23,7 @@ const PaymentMethod = () => {
           <input type="radio" name='paymentMethod' checked={SelectedPaymentMethod === "Stripe"} onChange={(e) => setSelectedPaymentMethod(e.target.value)} value="Stripe" className='appearance-none h-4 w-4 border  rounded-full checked:border-4 checked:border-blue-600' />
 
           <div className='border border-gray-600/30 hover:bg-gray-200/30 rounded-md p-3 flex items-center gap-3 w-full'>
-            <img src={Stripe} alt="" className='w-15' />
+            <img src="/assets/PaymentMethodCheckout/Stripe.png" alt="" className='w-15' />
             <div className='h-12 w-px bg-gray-600/30'></div>
             <span className='text-gray-600 text-[14px]'>Stripe</span>
           </div>

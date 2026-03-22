@@ -2,11 +2,11 @@ import React from 'react'
 
 const FooterBanner = () => {
     const paymentMethodImagesSource = [
-        "/src/assets/paymentMethods/payment-01.svg",
-        "/src/assets/paymentMethods/payment-02.svg",
-        "/src/assets/paymentMethods/payment-03.svg",
-        "/src/assets/paymentMethods/payment-04.svg",
-        "/src/assets/paymentMethods/payment-05.svg",
+        "/assets/paymentMethods/payment-01.svg",
+        "/assets/paymentMethods/payment-02.svg",
+        "/assets/paymentMethods/payment-03.svg",
+        "/assets/paymentMethods/payment-04.svg",
+        "/assets/paymentMethods/payment-05.svg",
     ]
   return (
     <div className='flex  px-5 min-h-15 justify-center md:justify-between  items-center  flex-wrap  text-[10px] md:text-[12px] bg-gray-400/20 '>

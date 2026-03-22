@@ -5,12 +5,12 @@ import { useVisibleCount } from "../../../../shared/hooks/useVisibleCount";
 
 const BrowseByCategorySlider = () => {
   const slides = [
-    { id: 1, image: "/src/assets/BrowseByCategoryProducts/laptop.webp", categoryName: "Laptop & PC" },
-    { id: 2, image: "/src/assets/BrowseByCategoryProducts/watch.webp", categoryName: "Watches" },
-    { id: 3, image: "/src/assets/BrowseByCategoryProducts/mobile.webp", categoryName: "Mobile and Tablets" },
-    { id: 4, image: "/src/assets/BrowseByCategoryProducts/health.webp", categoryName: "Sports and Health" },
-    { id: 5, image: "/src/assets/BrowseByCategoryProducts/home-Appliances.webp", categoryName: "Home Appliances" },
-    { id: 6, image: "/src/assets/BrowseByCategoryProducts/games.webp", categoryName: "Game and Videos and Televisions" },
+    { id: 1, image: "/assets/BrowseByCategoryProducts/laptop.webp", categoryName: "Laptop & PC" },
+    { id: 2, image: "/assets/BrowseByCategoryProducts/watch.webp", categoryName: "Watches" },
+    { id: 3, image: "/assets/BrowseByCategoryProducts/mobile.webp", categoryName: "Mobile and Tablets" },
+    { id: 4, image: "/assets/BrowseByCategoryProducts/health.webp", categoryName: "Sports and Health" },
+    { id: 5, image: "/assets/BrowseByCategoryProducts/home-Appliances.webp", categoryName: "Home Appliances" },
+    { id: 6, image: "/assets/BrowseByCategoryProducts/games.webp", categoryName: "Game and Videos and Televisions" },
     
   ];
 

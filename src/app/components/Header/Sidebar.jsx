@@ -42,7 +42,7 @@ const Sidebar = () => {
             <div className=" h-15 flex items-center justify-between">
           <Link to="/">
             <img
-              src="/src/assets/Velora-Logo.png"
+              src="/assets/Velora-Logo.png"
               alt="Velora"
               className="h-7 cursor-pointer px-3"
             />

@@ -5,10 +5,10 @@ export const newProductsData = [
     slug: "apple-watch-ultra-orange-trail",
     title: "Apple Watch Ultra 2 - 49mm Titanium",
     category: "Watches",
-    thumbnail: "/src/assets/Products/apple-watch-ultra-orange-trail.webp",
+    thumbnail: "/assets/Products/apple-watch-ultra-orange-trail.webp",
     images: [
-      "/src/assets/Products/apple-watch-ultra-orange-trail.webp",
-      "/src/assets/Products/apple-watch-ultra-olive-green.webp"
+      "/assets/Products/apple-watch-ultra-orange-trail.webp",
+      "/assets/Products/apple-watch-ultra-olive-green.webp"
     ],
     price: 799,
     originalPrice: 899,
@@ -54,10 +54,10 @@ export const newProductsData = [
     slug: "everfit-home-treadmill-adjustable",
     title: "Everfit Electric Treadmill - Adjustable Incline",
     category: "Sports and Health",
-    thumbnail: "/src/assets/Products/everfit-treadmill-white-black.webp",
+    thumbnail: "/assets/Products/everfit-treadmill-white-black.webp",
     images: [
-      "/src/assets/Products/everfit-treadmill-white-black.webp",
-      "/src/assets/Products/everfit-treadmill-black-frame.webp"
+      "/assets/Products/everfit-treadmill-white-black.webp",
+      "/assets/Products/everfit-treadmill-black-frame.webp"
     ],
     price: 349,
     originalPrice: 449,
@@ -103,10 +103,10 @@ export const newProductsData = [
     slug: "ipad-mini-7-sky-blue",
     title: "Apple iPad mini - A17 Pro",
     category: "Mobile and Tablets",
-    thumbnail: "/src/assets/Products/ipad-mini-sky-blue.webp",
+    thumbnail: "/assets/Products/ipad-mini-sky-blue.webp",
     images: [
-      "/src/assets/Products/ipad-mini-sky-blue.webp",
-      "/src/assets/Products/ipad-mini-space-gray.webp"
+      "/assets/Products/ipad-mini-sky-blue.webp",
+      "/assets/Products/ipad-mini-space-gray.webp"
     ],
     price: 499,
     originalPrice: 549,
@@ -151,10 +151,10 @@ export const newProductsData = [
     slug: "havit-hv-g69-gamepad",
     title: "Havit HV-G69 USB Gamepad",
     category: "Game and Videos and Televisions",
-    thumbnail: "/src/assets/Products/havit-gamepad-gray.webp",
+    thumbnail: "/assets/Products/havit-gamepad-gray.webp",
     images: [
-      "/src/assets/Products/havit-gamepad-gray.webp",
-      "/src/assets/Products/havit-gamepad-black.webp"
+      "/assets/Products/havit-gamepad-gray.webp",
+      "/assets/Products/havit-gamepad-black.webp"
     ],
     price: 19,
     originalPrice: 25,
@@ -197,10 +197,10 @@ export const newProductsData = [
     slug: "rangs-43-inch-android-tv",
     title: "Rangs 43 Inch Frameless Android TV",
     category: "Game and Videos and Televisions",
-    thumbnail: "/src/assets/Products/rangs-tv-black-green-accents.webp",
+    thumbnail: "/assets/Products/rangs-tv-black-green-accents.webp",
     images: [
-      "/src/assets/Products/rangs-tv-black-green-accents.webp",
-      "/src/assets/Products/rangs-tv-black-frameless.webp"
+      "/assets/Products/rangs-tv-black-green-accents.webp",
+      "/assets/Products/rangs-tv-black-frameless.webp"
     ],
     price: 289,
     originalPrice: 419,
@@ -245,8 +245,8 @@ export const newProductsData = [
     slug: "macbook-air-m1-8-256",
     title: "Apple MacBook Air M1 - 8GB/256GB",
     category: "Laptop & PC",
-    thumbnail: "/src/assets/Products/macbook-air-m1-space-gray.webp",
-    images: ["/src/assets/Products/macbook-air-m1-space-gray.webp"],
+    thumbnail: "/assets/Products/macbook-air-m1-space-gray.webp",
+    images: ["/assets/Products/macbook-air-m1-space-gray.webp"],
     price: 699,
     originalPrice: 999,
     salesPercentage: 30,
@@ -289,10 +289,10 @@ export const newProductsData = [
     slug: "imac-24-m4-2025",
     title: "Apple iMac 24-inch M4",
     category: "Laptop & PC",
-    thumbnail: "/src/assets/Products/imac-24-m4-silver.webp",
+    thumbnail: "/assets/Products/imac-24-m4-silver.webp",
     images: [
-      "/src/assets/Products/imac-24-m4-silver.webp",
-      "/src/assets/Products/imac-24-m4-gray-stand.webp"
+      "/assets/Products/imac-24-m4-silver.webp",
+      "/assets/Products/imac-24-m4-gray-stand.webp"
     ],
     price: 1299,
     originalPrice: 1499,
@@ -337,10 +337,10 @@ export const newProductsData = [
     slug: "iphone-16-pro-128",
     title: "Apple iPhone 16 Pro - 128GB",
     category: "Mobile and Tablets",
-    thumbnail: "/src/assets/Products/iphone-16-pro-titanium-gray.webp",
+    thumbnail: "/assets/Products/iphone-16-pro-titanium-gray.webp",
     images: [
-      "/src/assets/Products/iphone-16-pro-titanium-gray.webp",
-      "/src/assets/Products/iphone-16-pro-pink.webp"
+      "/assets/Products/iphone-16-pro-titanium-gray.webp",
+      "/assets/Products/iphone-16-pro-pink.webp"
     ],
     price: 999,
     originalPrice: 1099,
@@ -384,10 +384,10 @@ export const newProductsData = [
     slug: "portable-electric-blender-grinder",
     title: "Portable Electric Blender & Grinder",
     category: "Home Appliances",
-    thumbnail: "/src/assets/Products/portable-blender-white.webp",
+    thumbnail: "/assets/Products/portable-blender-white.webp",
     images: [
-      "/src/assets/Products/portable-blender-white.webp",
-      "/src/assets/Products/portable-blender-black.webp"
+      "/assets/Products/portable-blender-white.webp",
+      "/assets/Products/portable-blender-black.webp"
     ],
     price: 39,
     originalPrice: 59,
@@ -430,10 +430,10 @@ export const newProductsData = [
     slug: "macbook-air-m4-16-256",
     title: "Apple MacBook Air 13-inch M4 - 16GB/256GB",
     category: "Laptop & PC",
-    thumbnail: "/src/assets/Products/macbook-air-m4-midnight-gray.webp",
+    thumbnail: "/assets/Products/macbook-air-m4-midnight-gray.webp",
     images: [
-      "/src/assets/Products/macbook-air-m4-midnight-gray.webp",
-      "/src/assets/Products/macbook-air-m4-space-gray-alt.webp"
+      "/assets/Products/macbook-air-m4-midnight-gray.webp",
+      "/assets/Products/macbook-air-m4-space-gray-alt.webp"
     ],
     price: 1099,
     originalPrice: 1299,

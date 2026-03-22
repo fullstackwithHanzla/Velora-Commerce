@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import FedEx from "../../assets/shippingMethod/FedEx.png"
-import DHl from "../../assets/shippingMethod/DHL.png"
 import { useShallow } from 'zustand/react/shallow';
 import useShippingMethods from '../../app/layouts/providers/useShippingMethods'
 const ShippingMethod = () => {
@@ -33,7 +31,7 @@ const ShippingMethod = () => {
         <div onClick={()=>setselectedShippingMethod("DHL")} className='flex w-full items-center gap-5'>
           <input onChange={(e)=>setselectedShippingMethod(e.target.value)} checked={selectedShippingMethod === "DHL"}  type="radio" name='shipping' value="DHL" className='appearance-none h-4 w-4 border  rounded-full checked:border-4 checked:border-blue-600' />
           <div className='border p-2.5 rounded-md border-gray-600/30 hover:bg-gray-200/20 hover:border-gray-600/70 transition-colors duration-300 ease-in-out flex px-5 items-center  gap-5 w-full'>
-            <img src={DHl} alt="hi" className=' w-12 md:w-20' />
+            <img src="/assets/shippingMethod/DHL.png" alt="hi" className=' w-12 md:w-20' />
             <div className='h-15 w-px bg-gray-600/30'></div>
             <div>
               <span className='font-medium text-[14px] md:text-[18px]'>$12.75</span>
