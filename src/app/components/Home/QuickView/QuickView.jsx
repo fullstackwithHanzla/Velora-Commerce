@@ -24,6 +24,9 @@ const QuickView = memo(() => {
             setQuantity : state.setQuantity,
         }))
     )
+
+    
+
     // qvProd === quickView Product
     const qvProd = useMemo(() => {
         return newProductsData?.find((item) => item.id === quickViewId)
