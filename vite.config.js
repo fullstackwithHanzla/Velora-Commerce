@@ -8,4 +8,9 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  // Keep Rollup JS/CSS out of `dist/assets` so it never clashes with `public/assets`
+  // (images copied from public). Same-folder builds on Linux/Vercel can otherwise 404 static files.
+  build: {
+    assetsDir: 'chunks',
+  },
 })

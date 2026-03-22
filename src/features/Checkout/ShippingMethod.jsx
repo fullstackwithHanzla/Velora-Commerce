@@ -20,7 +20,7 @@ const ShippingMethod = () => {
         <div onClick={()=>setselectedShippingMethod("FedEx")} className='flex  w-full items-center gap-5'>
           <input onChange={(e) => setselectedShippingMethod(e.target.value)} checked={selectedShippingMethod === "FedEx"}  type="radio" name='shipping' value="FedEx" className='appearance-none h-4 w-4 border  rounded-full checked:border-4 checked:border-blue-600' />
           <div className='border rounded-md border-gray-600/30 hover:bg-gray-200/20 hover:border-gray-600/70 transition-colors duration-300 ease-in-out flex px-5 items-center  gap-5 w-full'>
-            <img src={FedEx} alt="hi" className=' w-12 md:w-20 ' />
+            <img src="/assets/shippingMethod/FedEx.png" alt="hi" className=' w-12 md:w-20 ' />
             <div className='h-15 w-px bg-gray-600/30'></div>
             <div>
               <span className='font-medium text-[14px] md:text-[18px]'>$10.99</span>
