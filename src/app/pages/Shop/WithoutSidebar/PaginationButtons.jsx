@@ -1,9 +1,18 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 
 
 const PaginationButtons = memo(({totalProducts , pages, setPages}) => {
     const [activePage,setActivePage] = useState(1)
+
+    useEffect(() => {
+      window.scrollTo({
+        top : 0,
+        behavior : 'smooth'
+      })
+    }, [activePage])
+    
+
   return (
     <div  className='flex items-center my-10 justify-center  gap-2'>
         <div className='flex gap-2 bg-white p-1 rounded-md shadow-md'>

@@ -15,7 +15,6 @@ const BillingAddress = () => {
 
     async function onSubmit(data) {
         await new Promise((res) => setTimeout(res,500))
-        console.log(data);
     }
 
     const FirstNameErros = formState.errors?.FirstName?.types ? Object.values(formState.errors?.FirstName?.types) : [];

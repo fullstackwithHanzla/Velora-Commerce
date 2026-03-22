@@ -29,7 +29,7 @@ const aboutDeliveryArray = [
 
 const AboutDelivery = () => {
   return (
-    <div className='flex w-full px-5 2xl:w-[53%] justify-center lg:justify-between flex-wrap lg:flex-nowrap items-center py-5 gap-2 lg:gap-5'>
+    <div className='flex w-full px-5 2xl:w-[53%] justify-evenly lg:justify-between flex-wrap lg:flex-nowrap items-center py-5 gap-3 lg:gap-5'>
         {aboutDeliveryArray.map(({icon,heading,subHeading} , index) => {
             const Icon = icon;
             return (
