@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import App from "./App";
-import LoadingCircle from "./shared/ui/LoadingCircle";
+import LoadingCircle from "./shared/components/LoadingCircle";
 
 function Root() {
 
