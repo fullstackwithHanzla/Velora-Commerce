@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import useCartStore from '../../../layouts/providers/useCartStore';
 import { useShallow } from 'zustand/shallow';
 import { Link } from 'react-router-dom';
 import { RxCross2 } from 'react-icons/rx';
-import EmptyCart from './EmptyCart';
 import Cart from './Cart';
 
 const SnackbarCart = () => {
@@ -13,14 +12,6 @@ const SnackbarCart = () => {
           checkCartStatus: state.checkCartStatus,
         }))
       );
-
-      const cart = useCartStore((state) => state.cart)
-
-      useEffect(() => {
-        getTotalPrice()
-      }, [cart])
-      
-      
 
       const getTotalPrice = useCartStore((state) => state.getTotalPrice)
 
@@ -37,53 +28,61 @@ const SnackbarCart = () => {
         `}
       />
 
-      {/* Sidebar */}
+      {/* Sidebar: viewport height + column flex so the list scrolls and footer stays visible */}
       <div
         className={`
-          absolute right-0 top-0 flex flex-col min-h-screen h-full  w-full  sm:w-100 md:w-120
-          bg-(--bg-card) 
+          absolute right-0 top-0 flex h-dvh max-h-dvh w-full flex-col sm:w-100 md:w-120
+          bg-(--bg-card) shadow-lg
           transition-transform duration-500 ease-in-out
           ${isCartOpen ? "translate-x-0" : "translate-x-full"}
           pointer-events-auto
         `}
       >
-        <div className=" flex flex-col min-h-full  justify-between">
-          <div>
-            <div className=" h-20 flex items-center justify-between px-6">
-
-            <h1 className='text-[16px] underline hover:text-(--accent-secondary) sm:text-2xl'>Cart View</h1>
-
+        <header className="flex h-20 shrink-0 items-center justify-between border-b border-black/10 px-6">
+          <h1 className="text-[16px] underline hover:text-(--accent-secondary) sm:text-2xl">
+            Cart View
+          </h1>
           <button
+            type="button"
             onClick={checkCartStatus}
-            className="p-3 text-2xl  hover:text-(--accent-secondary)"
+            className="p-3 text-2xl hover:text-(--accent-secondary)"
             aria-label="Close sidebar"
           >
             <RxCross2 />
           </button>
+        </header>
 
+        <div className="cart-drawer-scroll min-h-0 flex-1 overflow-y-auto overscroll-y-contain px-0 py-3">
+          <Cart />
         </div>
-        <hr className="text-black/30"/>
-          <div className='overflow-y-scroll'>
-            <Cart/>
+
+        <footer className="flex shrink-0 flex-col gap-5 border-t border-black/10 px-5 py-5">
+          <div className="flex w-full items-center justify-between">
+            <p className="text-md text-gray-500/90 underline">Subtotal : </p>
+            <span className="text-xl">
+              $
+              {getTotalPrice()
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            </span>
           </div>
-            
-        </div>
-        
-        <div className="border-t border-t-black/30 h-35 flex flex-col justify-center items-center gap-7 px-5">
-          <div className='flex justify-between items-center w-[97%]'>
-            <p className='text-gray-500/90 text-md underline'>Subtotal : </p>
-            <span className='text-xl'>${getTotalPrice().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
-          </div>
-          <div className='flex justify-evenly items-center w-full gap-3'>
-            <Link className='bg-(--accent-secondary) text-white py-3 grow flex justify-center text-[12px] sm:text-[14px] rounded-md' to="/cart">
+          <div className="flex w-full gap-3">
+            <Link
+              className="bg-(--accent-secondary) flex grow justify-center rounded-md py-3 text-[12px] text-white sm:text-[14px]"
+              to="/cart"
+              onClick={checkCartStatus}
+            >
               View Cart
             </Link>
-            <Link className='bg-(--accent-primary) text-white py-3  grow flex justify-center text-[12px] sm:text-[14px] rounded-md' to="/checkout">
+            <Link
+              className="bg-(--accent-primary) flex grow justify-center rounded-md py-3 text-[12px] text-white sm:text-[14px]"
+              to="/checkout"
+              onClick={checkCartStatus}
+            >
               Checkout
             </Link>
           </div>
-        </div>
-        </div>
+        </footer>
       </div>
     </div>
   )

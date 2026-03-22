@@ -15,6 +15,22 @@ body{
     z-index: -5;
 }
 
+/* Override global hidden scrollbar only where a thin track helps (e.g. cart drawer). */
+.cart-drawer-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--text-muted) 35%, transparent) transparent;
+}
+.cart-drawer-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+.cart-drawer-scroll::-webkit-scrollbar-thumb {
+    background-color: color-mix(in srgb, var(--text-muted) 40%, transparent);
+    border-radius: 9999px;
+}
+.cart-drawer-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
 
 
 

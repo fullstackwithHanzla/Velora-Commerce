@@ -19,12 +19,12 @@ const Cart = () => {
   return (
     <>
         {cart.length > 0 ? 
-        <div className='  flex  h-181 flex-col py-5 gap-3 overflow-y-scroll'>
+        <div className="flex flex-col gap-3 px-1 py-2 sm:px-2">
             {cart?.map((item) => (
                 <Link to={`/shop/${item.slug}`} key={item.id}
                 className='flex justify-between items-center gap-10 px-5'>
                     <div className='flex justify-start items-center gap-5'>
-                        <img src={item.thumbnail} alt={item.title} className='w-25 bg-gray-600/15 p-5 rounded-2xl'/>
+                        <img src={item.thumbnail} alt={item.title} loading="lazy" decoding="async" className='w-25 bg-gray-600/15 p-5 rounded-2xl'/>
                     <div className='flex flex-col '>
                         <span className='font-normal text-[14px] transition-colors duration-300 ease-in hover:text-(--accent-secondary)'>{item.title}({item.quantity})</span>
                         <span className='font-medium text-gray-600 text-[12px]'>Price: ${item.price}</span>
