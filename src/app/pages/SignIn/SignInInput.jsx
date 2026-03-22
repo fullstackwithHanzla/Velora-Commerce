@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import LoadingCircleMini from '../../../shared/ui/LoadingCircleMini'
 import { Link, useNavigate } from 'react-router-dom'
 import SignInMethods from './SignInMethods'
-import { signInSchema } from './SignInSchema'
+import { signInSchema }  from './signInSchema'
 
 const SignInInput = () => {
 
