@@ -22,8 +22,8 @@ const HomeBanner = () => {
               <div>
                 <p className='text-[8px] md:text-[14px] text-gray-700/80'>LIMITED TIME OFFER</p>
                 <div className='flex gap-2 items-center justify-center md:justify-start'>
-                  <h3 className='text-md md:text-xl font-medium'>${BannerProd.originalPrice}</h3>
-                <span className='line-through text-[10px] md:text-md font-light'>${BannerProd.price}</span>
+                  <h3 className='text-md md:text-xl font-medium'>${BannerProd.price}</h3>
+                <span className='line-through text-[10px] md:text-md font-light'>${BannerProd.originalPrice}</span>
                 </div>
               </div>
 
